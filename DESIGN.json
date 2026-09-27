@@ -1,0 +1,730 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-27T11:45:18.140Z",
+  "title": "Design System: RevisionOS",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Polycopié Paper",
+        "canonical": "oklch(99.2% 0.007 80.7)",
+        "tonalRamp": [
+          "oklch(15.0% 0.001 0)",
+          "oklch(26.0% 0.003 80.7)",
+          "oklch(38.0% 0.005 80.7)",
+          "oklch(50.0% 0.007 80.7)",
+          "oklch(62.0% 0.007 80.7)",
+          "oklch(74.0% 0.005 80.7)",
+          "oklch(86.0% 0.003 80.7)",
+          "oklch(95.0% 0.001 0)"
+        ]
+      },
+      "peach-panel": {
+        "role": "neutral",
+        "displayName": "Peach Panel",
+        "canonical": "oklch(96.3% 0.022 74.1)",
+        "tonalRamp": [
+          "oklch(15.0% 0.003 74.1)",
+          "oklch(26.0% 0.009 74.1)",
+          "oklch(38.0% 0.015 74.1)",
+          "oklch(50.0% 0.022 74.1)",
+          "oklch(62.0% 0.021 74.1)",
+          "oklch(74.0% 0.014 74.1)",
+          "oklch(86.0% 0.008 74.1)",
+          "oklch(95.0% 0.003 74.1)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Sheet White",
+        "canonical": "oklch(100.0% 0.000 0)",
+        "tonalRamp": [
+          "oklch(15.0% 0.000 0)",
+          "oklch(26.0% 0.000 0)",
+          "oklch(38.0% 0.000 0)",
+          "oklch(50.0% 0.000 0)",
+          "oklch(62.0% 0.000 0)",
+          "oklch(74.0% 0.000 0)",
+          "oklch(86.0% 0.000 0)",
+          "oklch(95.0% 0.000 0)"
+        ]
+      },
+      "inset": {
+        "role": "neutral",
+        "displayName": "Inset Stone",
+        "canonical": "oklch(97.0% 0.005 95.1)",
+        "tonalRamp": [
+          "oklch(15.0% 0.001 0)",
+          "oklch(26.0% 0.002 95.1)",
+          "oklch(38.0% 0.004 95.1)",
+          "oklch(50.0% 0.005 95.1)",
+          "oklch(62.0% 0.005 95.1)",
+          "oklch(74.0% 0.004 95.1)",
+          "oklch(86.0% 0.002 0)",
+          "oklch(95.0% 0.001 0)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Study Ink",
+        "canonical": "oklch(22.6% 0.012 293.1)",
+        "tonalRamp": [
+          "oklch(15.0% 0.002 0)",
+          "oklch(26.0% 0.005 293.1)",
+          "oklch(38.0% 0.008 293.1)",
+          "oklch(50.0% 0.012 293.1)",
+          "oklch(62.0% 0.011 293.1)",
+          "oklch(74.0% 0.008 293.1)",
+          "oklch(86.0% 0.004 293.1)",
+          "oklch(95.0% 0.002 0)"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "oklch(40.9% 0.013 291.5)",
+        "tonalRamp": [
+          "oklch(15.0% 0.002 0)",
+          "oklch(26.0% 0.005 291.5)",
+          "oklch(38.0% 0.009 291.5)",
+          "oklch(50.0% 0.013 291.5)",
+          "oklch(62.0% 0.013 291.5)",
+          "oklch(74.0% 0.009 291.5)",
+          "oklch(86.0% 0.005 291.5)",
+          "oklch(95.0% 0.002 0)"
+        ]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Quiet Ink",
+        "canonical": "oklch(50.0% 0.011 299.0)",
+        "tonalRamp": [
+          "oklch(15.0% 0.002 0)",
+          "oklch(26.0% 0.004 299.0)",
+          "oklch(38.0% 0.008 299.0)",
+          "oklch(50.0% 0.011 299.0)",
+          "oklch(62.0% 0.011 299.0)",
+          "oklch(74.0% 0.007 299.0)",
+          "oklch(86.0% 0.004 299.0)",
+          "oklch(95.0% 0.002 0)"
+        ]
+      },
+      "label-muted": {
+        "role": "neutral",
+        "displayName": "Label Ink",
+        "canonical": "oklch(53.5% 0.020 296.3)",
+        "tonalRamp": [
+          "oklch(15.0% 0.003 296.3)",
+          "oklch(26.0% 0.008 296.3)",
+          "oklch(38.0% 0.014 296.3)",
+          "oklch(50.0% 0.020 296.3)",
+          "oklch(62.0% 0.019 296.3)",
+          "oklch(74.0% 0.013 296.3)",
+          "oklch(86.0% 0.007 296.3)",
+          "oklch(95.0% 0.003 296.3)"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "oklch(90.8% 0.008 73.7)",
+        "tonalRamp": [
+          "oklch(15.0% 0.001 0)",
+          "oklch(26.0% 0.003 73.7)",
+          "oklch(38.0% 0.006 73.7)",
+          "oklch(50.0% 0.008 73.7)",
+          "oklch(62.0% 0.008 73.7)",
+          "oklch(74.0% 0.005 73.7)",
+          "oklch(86.0% 0.003 73.7)",
+          "oklch(95.0% 0.001 0)"
+        ]
+      },
+      "hairline-strong": {
+        "role": "neutral",
+        "displayName": "Pencil Line",
+        "canonical": "oklch(84.1% 0.011 76.6)",
+        "tonalRamp": [
+          "oklch(15.0% 0.002 0)",
+          "oklch(26.0% 0.004 76.6)",
+          "oklch(38.0% 0.008 76.6)",
+          "oklch(50.0% 0.011 76.6)",
+          "oklch(62.0% 0.011 76.6)",
+          "oklch(74.0% 0.007 76.6)",
+          "oklch(86.0% 0.004 76.6)",
+          "oklch(95.0% 0.002 0)"
+        ]
+      },
+      "ember": {
+        "role": "primary",
+        "displayName": "Trail Ember",
+        "canonical": "oklch(71.2% 0.157 50.9)",
+        "tonalRamp": [
+          "oklch(15.0% 0.024 50.9)",
+          "oklch(26.0% 0.063 50.9)",
+          "oklch(38.0% 0.110 50.9)",
+          "oklch(50.0% 0.157 50.9)",
+          "oklch(62.0% 0.149 50.9)",
+          "oklch(74.0% 0.102 50.9)",
+          "oklch(86.0% 0.055 50.9)",
+          "oklch(95.0% 0.024 50.9)"
+        ]
+      },
+      "ember-tint": {
+        "role": "primary",
+        "displayName": "Ember Wash",
+        "canonical": "oklch(96.1% 0.021 67.6)",
+        "tonalRamp": [
+          "oklch(15.0% 0.003 67.6)",
+          "oklch(26.0% 0.008 67.6)",
+          "oklch(38.0% 0.014 67.6)",
+          "oklch(50.0% 0.021 67.6)",
+          "oklch(62.0% 0.020 67.6)",
+          "oklch(74.0% 0.013 67.6)",
+          "oklch(86.0% 0.007 67.6)",
+          "oklch(95.0% 0.003 67.6)"
+        ]
+      },
+      "ember-deep": {
+        "role": "primary",
+        "displayName": "Burnt Ember",
+        "canonical": "oklch(52.6% 0.095 50.1)",
+        "tonalRamp": [
+          "oklch(15.0% 0.014 50.1)",
+          "oklch(26.0% 0.038 50.1)",
+          "oklch(38.0% 0.067 50.1)",
+          "oklch(50.0% 0.095 50.1)",
+          "oklch(62.0% 0.090 50.1)",
+          "oklch(74.0% 0.062 50.1)",
+          "oklch(86.0% 0.033 50.1)",
+          "oklch(95.0% 0.014 50.1)"
+        ]
+      },
+      "ember-edge": {
+        "role": "primary",
+        "displayName": "Trail Edge",
+        "canonical": "oklch(78.9% 0.107 58.4)",
+        "tonalRamp": [
+          "oklch(15.0% 0.016 58.4)",
+          "oklch(26.0% 0.043 58.4)",
+          "oklch(38.0% 0.075 58.4)",
+          "oklch(50.0% 0.107 58.4)",
+          "oklch(62.0% 0.102 58.4)",
+          "oklch(74.0% 0.070 58.4)",
+          "oklch(86.0% 0.038 58.4)",
+          "oklch(95.0% 0.016 58.4)"
+        ]
+      },
+      "urgent": {
+        "role": "secondary",
+        "displayName": "Signal Red",
+        "canonical": "oklch(62.4% 0.175 26.0)",
+        "tonalRamp": [
+          "oklch(15.0% 0.026 26.0)",
+          "oklch(26.0% 0.070 26.0)",
+          "oklch(38.0% 0.123 26.0)",
+          "oklch(50.0% 0.175 26.0)",
+          "oklch(62.0% 0.166 26.0)",
+          "oklch(74.0% 0.114 26.0)",
+          "oklch(86.0% 0.061 26.0)",
+          "oklch(95.0% 0.026 26.0)"
+        ]
+      },
+      "urgent-tint": {
+        "role": "secondary",
+        "displayName": "Signal Red Tint",
+        "canonical": "oklch(95.2% 0.018 26.1)",
+        "tonalRamp": [
+          "oklch(15.0% 0.003 26.1)",
+          "oklch(26.0% 0.007 26.1)",
+          "oklch(38.0% 0.012 26.1)",
+          "oklch(50.0% 0.018 26.1)",
+          "oklch(62.0% 0.017 26.1)",
+          "oklch(74.0% 0.011 26.1)",
+          "oklch(86.0% 0.006 26.1)",
+          "oklch(95.0% 0.003 26.1)"
+        ]
+      },
+      "urgent-ink": {
+        "role": "secondary",
+        "displayName": "Signal Red Ink",
+        "canonical": "oklch(52.2% 0.172 27.5)",
+        "tonalRamp": [
+          "oklch(15.0% 0.026 27.5)",
+          "oklch(26.0% 0.069 27.5)",
+          "oklch(38.0% 0.120 27.5)",
+          "oklch(50.0% 0.172 27.5)",
+          "oklch(62.0% 0.163 27.5)",
+          "oklch(74.0% 0.112 27.5)",
+          "oklch(86.0% 0.060 27.5)",
+          "oklch(95.0% 0.026 27.5)"
+        ]
+      },
+      "important": {
+        "role": "secondary",
+        "displayName": "Exam Amber",
+        "canonical": "oklch(80.7% 0.145 85.5)",
+        "tonalRamp": [
+          "oklch(15.0% 0.022 85.5)",
+          "oklch(26.0% 0.058 85.5)",
+          "oklch(38.0% 0.101 85.5)",
+          "oklch(50.0% 0.145 85.5)",
+          "oklch(62.0% 0.138 85.5)",
+          "oklch(74.0% 0.094 85.5)",
+          "oklch(86.0% 0.051 85.5)",
+          "oklch(95.0% 0.022 85.5)"
+        ]
+      },
+      "important-tint": {
+        "role": "secondary",
+        "displayName": "Exam Amber Tint",
+        "canonical": "oklch(96.8% 0.044 95.8)",
+        "tonalRamp": [
+          "oklch(15.0% 0.007 95.8)",
+          "oklch(26.0% 0.018 95.8)",
+          "oklch(38.0% 0.031 95.8)",
+          "oklch(50.0% 0.044 95.8)",
+          "oklch(62.0% 0.042 95.8)",
+          "oklch(74.0% 0.028 95.8)",
+          "oklch(86.0% 0.015 95.8)",
+          "oklch(95.0% 0.007 95.8)"
+        ]
+      },
+      "important-ink": {
+        "role": "secondary",
+        "displayName": "Exam Amber Ink",
+        "canonical": "oklch(48.8% 0.100 84.4)",
+        "tonalRamp": [
+          "oklch(15.0% 0.015 84.4)",
+          "oklch(26.0% 0.040 84.4)",
+          "oklch(38.0% 0.070 84.4)",
+          "oklch(50.0% 0.100 84.4)",
+          "oklch(62.0% 0.095 84.4)",
+          "oklch(74.0% 0.065 84.4)",
+          "oklch(86.0% 0.035 84.4)",
+          "oklch(95.0% 0.015 84.4)"
+        ]
+      },
+      "acquis": {
+        "role": "secondary",
+        "displayName": "Meadow Green",
+        "canonical": "oklch(69.2% 0.122 154.2)",
+        "tonalRamp": [
+          "oklch(15.0% 0.018 154.2)",
+          "oklch(26.0% 0.049 154.2)",
+          "oklch(38.0% 0.085 154.2)",
+          "oklch(50.0% 0.122 154.2)",
+          "oklch(62.0% 0.116 154.2)",
+          "oklch(74.0% 0.079 154.2)",
+          "oklch(86.0% 0.043 154.2)",
+          "oklch(95.0% 0.018 154.2)"
+        ]
+      },
+      "acquis-tint": {
+        "role": "secondary",
+        "displayName": "Meadow Tint",
+        "canonical": "oklch(97.9% 0.009 150.7)",
+        "tonalRamp": [
+          "oklch(15.0% 0.001 0)",
+          "oklch(26.0% 0.004 150.7)",
+          "oklch(38.0% 0.006 150.7)",
+          "oklch(50.0% 0.009 150.7)",
+          "oklch(62.0% 0.009 150.7)",
+          "oklch(74.0% 0.006 150.7)",
+          "oklch(86.0% 0.003 150.7)",
+          "oklch(95.0% 0.001 0)"
+        ]
+      },
+      "acquis-border": {
+        "role": "secondary",
+        "displayName": "Meadow Border",
+        "canonical": "oklch(91.3% 0.029 151.9)",
+        "tonalRamp": [
+          "oklch(15.0% 0.004 151.9)",
+          "oklch(26.0% 0.011 151.9)",
+          "oklch(38.0% 0.020 151.9)",
+          "oklch(50.0% 0.029 151.9)",
+          "oklch(62.0% 0.027 151.9)",
+          "oklch(74.0% 0.019 151.9)",
+          "oklch(86.0% 0.010 151.9)",
+          "oklch(95.0% 0.004 151.9)"
+        ]
+      },
+      "acquis-ink": {
+        "role": "secondary",
+        "displayName": "Meadow Ink",
+        "canonical": "oklch(48.6% 0.083 154.8)",
+        "tonalRamp": [
+          "oklch(15.0% 0.012 154.8)",
+          "oklch(26.0% 0.033 154.8)",
+          "oklch(38.0% 0.058 154.8)",
+          "oklch(50.0% 0.083 154.8)",
+          "oklch(62.0% 0.079 154.8)",
+          "oklch(74.0% 0.054 154.8)",
+          "oklch(86.0% 0.029 154.8)",
+          "oklch(95.0% 0.012 154.8)"
+        ]
+      },
+      "later": {
+        "role": "secondary",
+        "displayName": "Slate Later",
+        "canonical": "oklch(62.0% 0.029 259.0)",
+        "tonalRamp": [
+          "oklch(15.0% 0.004 259.0)",
+          "oklch(26.0% 0.012 259.0)",
+          "oklch(38.0% 0.020 259.0)",
+          "oklch(50.0% 0.029 259.0)",
+          "oklch(62.0% 0.027 259.0)",
+          "oklch(74.0% 0.019 259.0)",
+          "oklch(86.0% 0.010 259.0)",
+          "oklch(95.0% 0.004 259.0)"
+        ]
+      },
+      "later-tint": {
+        "role": "secondary",
+        "displayName": "Slate Later Tint",
+        "canonical": "oklch(96.0% 0.006 255.5)",
+        "tonalRamp": [
+          "oklch(15.0% 0.001 0)",
+          "oklch(26.0% 0.003 255.5)",
+          "oklch(38.0% 0.004 255.5)",
+          "oklch(50.0% 0.006 255.5)",
+          "oklch(62.0% 0.006 255.5)",
+          "oklch(74.0% 0.004 255.5)",
+          "oklch(86.0% 0.002 255.5)",
+          "oklch(95.0% 0.001 0)"
+        ]
+      },
+      "later-ink": {
+        "role": "secondary",
+        "displayName": "Slate Later Ink",
+        "canonical": "oklch(48.6% 0.027 258.4)",
+        "tonalRamp": [
+          "oklch(15.0% 0.004 258.4)",
+          "oklch(26.0% 0.011 258.4)",
+          "oklch(38.0% 0.019 258.4)",
+          "oklch(50.0% 0.027 258.4)",
+          "oklch(62.0% 0.026 258.4)",
+          "oklch(74.0% 0.018 258.4)",
+          "oklch(86.0% 0.010 258.4)",
+          "oklch(95.0% 0.004 258.4)"
+        ]
+      },
+      "module-teal": {
+        "role": "tertiary",
+        "displayName": "Lagoon Teal",
+        "canonical": "oklch(70.0% 0.091 184.3)",
+        "tonalRamp": [
+          "oklch(15.0% 0.014 184.3)",
+          "oklch(26.0% 0.036 184.3)",
+          "oklch(38.0% 0.064 184.3)",
+          "oklch(50.0% 0.091 184.3)",
+          "oklch(62.0% 0.087 184.3)",
+          "oklch(74.0% 0.059 184.3)",
+          "oklch(86.0% 0.032 184.3)",
+          "oklch(95.0% 0.014 184.3)"
+        ]
+      },
+      "module-teal-tint": {
+        "role": "tertiary",
+        "displayName": "Lagoon Teal Tint",
+        "canonical": "oklch(95.6% 0.020 189.2)",
+        "tonalRamp": [
+          "oklch(15.0% 0.003 189.2)",
+          "oklch(26.0% 0.008 189.2)",
+          "oklch(38.0% 0.014 189.2)",
+          "oklch(50.0% 0.020 189.2)",
+          "oklch(62.0% 0.019 189.2)",
+          "oklch(74.0% 0.013 189.2)",
+          "oklch(86.0% 0.007 189.2)",
+          "oklch(95.0% 0.003 189.2)"
+        ]
+      },
+      "module-rose": {
+        "role": "tertiary",
+        "displayName": "Rose Ink",
+        "canonical": "oklch(64.0% 0.178 352.2)",
+        "tonalRamp": [
+          "oklch(15.0% 0.027 352.2)",
+          "oklch(26.0% 0.071 352.2)",
+          "oklch(38.0% 0.125 352.2)",
+          "oklch(50.0% 0.178 352.2)",
+          "oklch(62.0% 0.169 352.2)",
+          "oklch(74.0% 0.116 352.2)",
+          "oklch(86.0% 0.062 352.2)",
+          "oklch(95.0% 0.027 352.2)"
+        ]
+      },
+      "module-rose-tint": {
+        "role": "tertiary",
+        "displayName": "Rose Ink Tint",
+        "canonical": "oklch(94.7% 0.022 344.2)",
+        "tonalRamp": [
+          "oklch(15.0% 0.003 344.2)",
+          "oklch(26.0% 0.009 344.2)",
+          "oklch(38.0% 0.015 344.2)",
+          "oklch(50.0% 0.022 344.2)",
+          "oklch(62.0% 0.021 344.2)",
+          "oklch(74.0% 0.014 344.2)",
+          "oklch(86.0% 0.008 344.2)",
+          "oklch(95.0% 0.003 344.2)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Onboarding story headline only."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Page titles: greeting, onboarding question, module name."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "The focused concept in the focus card and source panel."
+      },
+      "title-sm": {
+        "displayName": "Title Small",
+        "purpose": "Section titles, module card names, choice card acronyms."
+      },
+      "body-lg": {
+        "displayName": "Body Large",
+        "purpose": "Page subtitles and nav labels, capped at 65ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Explanations, reasons, source rows, buttons, capped at 70ch."
+      },
+      "node": {
+        "displayName": "Node",
+        "purpose": "Concept node titles on the graph; wrap, never ellipsize."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase section labels."
+      },
+      "status": {
+        "displayName": "Status",
+        "purpose": "Status chips, countdown badges, status word inside nodes."
+      }
+    },
+    "shadows": [
+      {
+        "name": "rest",
+        "value": "0 1px 2px rgba(28, 27, 33, 0.04), 0 2px 8px rgba(28, 27, 33, 0.04)",
+        "purpose": "Cards, graph nodes, secondary buttons, the source panel."
+      },
+      {
+        "name": "lift",
+        "value": "0 2px 4px rgba(28, 27, 33, 0.05), 0 8px 20px rgba(28, 27, 33, 0.07)",
+        "purpose": "Hover on clickable cards and nodes."
+      },
+      {
+        "name": "ember-halo",
+        "value": "0 0 0 4px rgba(237, 129, 57, 0.14), 0 6px 18px rgba(237, 129, 57, 0.16)",
+        "purpose": "With a 2px ember border: the selected choice card or the current concept node. One per view."
+      },
+      {
+        "name": "float",
+        "value": "0 10px 30px rgba(28, 27, 33, 0.22)",
+        "purpose": "Floating pills (future Coach button). Not in the MVP."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-quart",
+        "value": "cubic-bezier(0.25, 1, 0.5, 1)",
+        "purpose": "Default easing for every state transition."
+      },
+      {
+        "name": "duration-fast",
+        "value": "120ms",
+        "purpose": "Press feedback (scale 0.98)."
+      },
+      {
+        "name": "duration-base",
+        "value": "200ms",
+        "purpose": "Hover, focus, halo, color and shadow changes."
+      },
+      {
+        "name": "duration-panel",
+        "value": "250ms",
+        "purpose": "Source panel or bottom sheet sliding in."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "prefers-reduced-motion: reduce",
+        "purpose": "Replace transitions with instant state changes."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px",
+        "purpose": "Below: source panel becomes a bottom sheet, onboarding story panel hidden, choice cards stack."
+      },
+      {
+        "name": "lg",
+        "value": "1024px",
+        "purpose": "Below: sidebar collapses into a top bar with a menu sheet."
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one action that moves the trail forward. One per view.",
+      "html": "<button class=\"ds-btn-primary\">Continuer <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 8px; height: 52px; padding: 14px 28px; background: var(--color-ink, #1C1B21); color: var(--color-paper, #FFFCF7); font: 700 1rem/1.5 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; border: none; border-radius: 10px; cursor: pointer; transition: background 200ms cubic-bezier(0.25, 1, 0.5, 1), transform 120ms cubic-bezier(0.25, 1, 0.5, 1); } .ds-btn-primary:hover { background: var(--color-ink-soft, #4A4951); } .ds-btn-primary:active { transform: scale(0.98); } .ds-btn-primary:focus-visible { outline: 2px solid var(--color-ember, #ED8139); outline-offset: 2px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Every other action: mark done, full screen, filters.",
+      "html": "<button class=\"ds-btn-secondary\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m5 12 5 5 9-10\"/></svg> C'est fait, suivante</button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 12px 24px; background: var(--color-surface, #FFFFFF); color: var(--color-ink, #1C1B21); font: 700 1rem/1.5 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; border: 1px solid var(--color-hairline, #E4E0DB); border-radius: 10px; box-shadow: 0 1px 2px rgba(28, 27, 33, 0.04), 0 2px 8px rgba(28, 27, 33, 0.04); cursor: pointer; transition: background 200ms cubic-bezier(0.25, 1, 0.5, 1), transform 120ms cubic-bezier(0.25, 1, 0.5, 1); } .ds-btn-secondary:hover { background: var(--color-inset, #F6F5F1); } .ds-btn-secondary:active { transform: scale(0.98); } .ds-btn-secondary:focus-visible { outline: 2px solid var(--color-ember, #ED8139); outline-offset: 2px; }"
+    },
+    {
+      "name": "Ghost Ember Button",
+      "kind": "button",
+      "refersTo": "button-ghost-ember",
+      "description": "Skip an optional step (\"Passer\").",
+      "html": "<button class=\"ds-btn-ghost\">Passer</button>",
+      "css": ".ds-btn-ghost { height: 44px; padding: 10px 24px; background: var(--color-ember-tint, #FCF0E4); color: var(--color-ember-deep, #965935); font: 700 1rem/1.5 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; border: none; border-radius: 10px; cursor: pointer; transition: filter 200ms cubic-bezier(0.25, 1, 0.5, 1); } .ds-btn-ghost:hover { filter: brightness(0.97); } .ds-btn-ghost:focus-visible { outline: 2px solid var(--color-ember, #ED8139); outline-offset: 2px; }"
+    },
+    {
+      "name": "Status Chips",
+      "kind": "chip",
+      "refersTo": "status-chip-urgent",
+      "description": "Dot, French word, and tint. Never color alone.",
+      "html": "<div class=\"ds-chips\"><span class=\"ds-chip ds-chip-urgent\"><span class=\"ds-dot\" style=\"background:var(--color-urgent, #DD524C)\"></span>Urgent</span><span class=\"ds-chip ds-chip-important\"><span class=\"ds-dot\" style=\"background:var(--color-important, #EAB83E)\"></span>Important</span><span class=\"ds-chip ds-chip-later\"><span class=\"ds-dot\" style=\"background:var(--color-later, #7C8798)\"></span>Plus tard</span><span class=\"ds-chip ds-chip-acquis\"><span class=\"ds-dot\" style=\"background:var(--color-acquis, #57B279)\"></span>Acquis</span></div>",
+      "css": ".ds-chips { display: flex; flex-wrap: wrap; gap: 8px; } .ds-chip { display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; border-radius: 6px; font: 700 0.8125rem/1.2 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; } .ds-dot { width: 8px; height: 8px; border-radius: 9999px; display: inline-block; flex: none; } .ds-chip-urgent { background: var(--color-urgent-tint, #FBEBE9); color: var(--color-urgent-ink, #B8322C); } .ds-chip-important { background: var(--color-important-tint, #FDF5D4); color: var(--color-important-ink, #7A5A00); } .ds-chip-later { background: var(--color-later-tint, #EFF2F6); color: var(--color-later-ink, #56606F); } .ds-chip-acquis { background: var(--color-acquis-tint, #F4FAF5); color: var(--color-acquis-ink, #346D4A); }"
+    },
+    {
+      "name": "Sidebar Navigation",
+      "kind": "nav",
+      "refersTo": "nav-item-active",
+      "description": "Primary nav plus the module list with countdown badges.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Navigation principale\"><a class=\"ds-nav-item\" href=\"#\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M3 10.5 12 3l9 7.5\"/><path d=\"M5 9.5V21h14V9.5\"/></svg>Accueil</a><a class=\"ds-nav-item is-active\" aria-current=\"page\" href=\"#\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2z\"/><path d=\"M22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8z\"/></svg>Mes modules</a><p class=\"ds-nav-label\">Mes modules</p><a class=\"ds-nav-module\" href=\"#\"><span class=\"ds-sq\" style=\"background:var(--color-ember, #ED8139)\"></span>Algèbre 1<span class=\"ds-count ds-count-urgent\">J-2</span></a><a class=\"ds-nav-module\" href=\"#\"><span class=\"ds-sq\" style=\"background:var(--color-module-teal, #53B1A5)\"></span>Analyse 1<span class=\"ds-count ds-count-important\">J-4</span></a><a class=\"ds-nav-module\" href=\"#\"><span class=\"ds-sq\" style=\"background:var(--color-module-rose, #D95597)\"></span>Algorithmique 1<span class=\"ds-count ds-count-later\">J-11</span></a></nav>",
+      "css": ".ds-nav { display: flex; flex-direction: column; gap: 4px; width: 256px; padding: 16px; background: var(--color-surface, #FFFFFF); font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; } .ds-nav-item { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 10px; color: var(--color-ink-soft, #4A4951); font: 500 1.125rem/1.5 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; text-decoration: none; transition: background 200ms cubic-bezier(0.25, 1, 0.5, 1); } .ds-nav-item:hover { background: var(--color-inset, #F6F5F1); } .ds-nav-item.is-active { background: var(--color-ember-tint, #FCF0E4); color: var(--color-ember-deep, #965935); font-weight: 700; } .ds-nav-item:focus-visible, .ds-nav-module:focus-visible { outline: 2px solid var(--color-ember, #ED8139); outline-offset: 2px; } .ds-nav-label { margin: 24px 16px 8px; color: var(--color-label-muted, #6E6B78); font: 700 0.75rem/1.3 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; letter-spacing: 0.08em; text-transform: uppercase; } .ds-nav-module { display: flex; align-items: center; gap: 12px; padding: 10px 16px; border-radius: 10px; color: var(--color-ink, #1C1B21); font: 700 1rem/1.5 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; text-decoration: none; } .ds-nav-module:hover { background: var(--color-inset, #F6F5F1); } .ds-sq { width: 10px; height: 10px; border-radius: 3px; flex: none; } .ds-count { margin-left: auto; padding: 4px 8px; border-radius: 6px; font: 700 0.8125rem/1.2 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; font-variant-numeric: tabular-nums; } .ds-count-urgent { background: var(--color-urgent-tint, #FBEBE9); color: var(--color-urgent-ink, #B8322C); } .ds-count-important { background: var(--color-important-tint, #FDF5D4); color: var(--color-important-ink, #7A5A00); } .ds-count-later { background: var(--color-later-tint, #EFF2F6); color: var(--color-later-ink, #56606F); }"
+    },
+    {
+      "name": "Choice Card",
+      "kind": "card",
+      "refersTo": "choice-card-selected",
+      "description": "Onboarding radio option; the selected one wears the Ember Halo.",
+      "html": "<div class=\"ds-choices\" role=\"radiogroup\" aria-label=\"Où étudies-tu ?\"><button class=\"ds-choice is-selected\" role=\"radio\" aria-checked=\"true\"><strong>ESI</strong><span>École nationale Supérieure d'Informatique</span></button><button class=\"ds-choice\" role=\"radio\" aria-checked=\"false\"><strong>ENP</strong><span>École Nationale Polytechnique</span></button></div>",
+      "css": ".ds-choices { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; } .ds-choice { display: flex; flex-direction: column; gap: 8px; text-align: left; padding: 24px; background: var(--color-surface, #FFFFFF); border: 1px solid var(--color-hairline, #E4E0DB); border-radius: 16px; cursor: pointer; font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; transition: box-shadow 200ms cubic-bezier(0.25, 1, 0.5, 1), border-color 200ms cubic-bezier(0.25, 1, 0.5, 1); } .ds-choice strong { color: var(--color-ink, #1C1B21); font: 700 1.25rem/1.3 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; letter-spacing: -0.01em; } .ds-choice span { color: var(--color-ink-muted, #646269); font: 500 1rem/1.5 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; } .ds-choice:hover { box-shadow: 0 2px 4px rgba(28, 27, 33, 0.05), 0 8px 20px rgba(28, 27, 33, 0.07); border-color: var(--color-hairline-strong, #CFCAC3); } .ds-choice.is-selected { border: 2px solid var(--color-ember, #ED8139); padding: 23px; box-shadow: 0 0 0 4px rgba(237, 129, 57, 0.14), 0 6px 18px rgba(237, 129, 57, 0.16); } .ds-choice:focus-visible { outline: 2px solid var(--color-ember, #ED8139); outline-offset: 2px; }"
+    },
+    {
+      "name": "Concept Node",
+      "kind": "custom",
+      "refersTo": "concept-node",
+      "description": "React Flow custom node: status line, concept name; current node has the halo, acquired node is Meadow, untested shows \"Non testé\".",
+      "html": "<div class=\"ds-nodes\"><div class=\"ds-node ds-node-acquis\" tabindex=\"0\"><span class=\"ds-node-status\" style=\"color:var(--color-acquis-ink, #346D4A)\"><span class=\"ds-dot\" style=\"background:var(--color-acquis, #57B279)\"></span>Acquis</span>Structure de groupe</div><div class=\"ds-node ds-node-current\" tabindex=\"0\"><span class=\"ds-node-status\" style=\"color:var(--color-urgent-ink, #B8322C)\"><span class=\"ds-dot\" style=\"background:var(--color-urgent, #DD524C)\"></span>Urgent</span>Morphismes de groupes</div><div class=\"ds-node\" tabindex=\"0\"><span class=\"ds-node-status\" style=\"color:var(--color-important-ink, #7A5A00)\"><span class=\"ds-dot\" style=\"background:var(--color-important, #EAB83E)\"></span>Important<span class=\"ds-untested\"><span class=\"ds-ring\"></span>Non testé</span></span>Théorème de Lagrange</div><div class=\"ds-node ds-node-uncertain\" tabindex=\"0\"><span class=\"ds-node-status\" style=\"color:var(--color-later-ink, #56606F)\"><span class=\"ds-dot\" style=\"background:var(--color-later, #7C8798)\"></span>Plus tard<span class=\"ds-untested\">À vérifier</span></span>Anneaux et corps</div></div>",
+      "css": ".ds-nodes { display: flex; flex-wrap: wrap; gap: 24px; padding: 24px; background-color: var(--color-surface, #FFFFFF); background-image: radial-gradient(var(--color-hairline, #E4E0DB) 1px, transparent 1px); background-size: 20px 20px; border: 1px solid var(--color-hairline, #E4E0DB); border-radius: 16px; } .ds-node { display: flex; flex-direction: column; gap: 6px; width: 180px; padding: 12px 16px; background: var(--color-surface, #FFFFFF); color: var(--color-ink, #1C1B21); border: 1px solid var(--color-hairline, #E4E0DB); border-radius: 10px; box-shadow: 0 1px 2px rgba(28, 27, 33, 0.04), 0 2px 8px rgba(28, 27, 33, 0.04); font: 700 1rem/1.3 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; cursor: pointer; transition: box-shadow 200ms cubic-bezier(0.25, 1, 0.5, 1); } .ds-node:hover { box-shadow: 0 2px 4px rgba(28, 27, 33, 0.05), 0 8px 20px rgba(28, 27, 33, 0.07); } .ds-node:focus-visible { outline: 2px solid var(--color-ember, #ED8139); outline-offset: 2px; } .ds-node-status { display: flex; align-items: center; gap: 6px; font: 700 0.8125rem/1.2 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; } .ds-dot { width: 8px; height: 8px; border-radius: 9999px; display: inline-block; flex: none; } .ds-node-acquis { background: var(--color-acquis-tint, #F4FAF5); border-color: var(--color-acquis-border, #D5E8D9); } .ds-node-current { border: 2px solid var(--color-ember, #ED8139); padding: 11px 15px; box-shadow: 0 0 0 4px rgba(237, 129, 57, 0.14), 0 6px 18px rgba(237, 129, 57, 0.16); } .ds-node-uncertain { border: 1px dashed var(--color-hairline-strong, #CFCAC3); } .ds-untested { display: inline-flex; align-items: center; gap: 4px; margin-left: 4px; color: var(--color-label-muted, #6E6B78); font-weight: 600; } .ds-ring { width: 8px; height: 8px; border-radius: 9999px; border: 1.5px solid var(--color-hairline-strong, #CFCAC3); }"
+    },
+    {
+      "name": "Source Row",
+      "kind": "custom",
+      "refersTo": "source-row",
+      "description": "Evidence link in the source panel: course page, TD exercise, exam with points.",
+      "html": "<div class=\"ds-sources\"><p class=\"ds-src-label\">Dans ton cours</p><a class=\"ds-src ds-src-course\" href=\"#\"><span class=\"ds-src-icon\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z\"/><path d=\"M14 3v6h6\"/><path d=\"M8 13h8M8 17h5\"/></svg></span>Chapitre 2, page 42<span class=\"ds-src-arrow\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></span></a><p class=\"ds-src-label\">Aux examens</p><a class=\"ds-src\" href=\"#\">Examen 2025, exercice 2<span class=\"ds-src-pts\">3,75 pts</span></a></div>",
+      "css": ".ds-sources { display: flex; flex-direction: column; gap: 8px; width: 312px; font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; } .ds-src-label { margin: 12px 0 0; color: var(--color-label-muted, #6E6B78); font: 700 0.75rem/1.3 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; letter-spacing: 0.08em; text-transform: uppercase; } .ds-src { display: flex; align-items: center; gap: 12px; padding: 12px 16px; border-radius: 10px; color: var(--color-ink, #1C1B21); font: 500 1rem/1.5 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; text-decoration: none; transition: background 200ms cubic-bezier(0.25, 1, 0.5, 1); } .ds-src:hover { background: var(--color-inset, #F6F5F1); } .ds-src:focus-visible { outline: 2px solid var(--color-ember, #ED8139); outline-offset: 2px; } .ds-src-course { background: var(--color-inset, #F6F5F1); font-weight: 700; } .ds-src-course:hover { background: var(--color-hairline, #E4E0DB); } .ds-src-icon { color: var(--color-ember, #ED8139); display: inline-flex; } .ds-src-arrow { margin-left: auto; color: var(--color-ink-muted, #646269); display: inline-flex; } .ds-src-pts { margin-left: auto; color: var(--color-ink-muted, #646269); font-weight: 700; font-variant-numeric: tabular-nums; }"
+    },
+    {
+      "name": "Module Card",
+      "kind": "card",
+      "refersTo": "module-card",
+      "description": "Links to a module graph: identity square, countdown, progress in the module color.",
+      "html": "<a class=\"ds-module\" href=\"#\"><span class=\"ds-module-head\"><span class=\"ds-sq\" style=\"background:var(--color-module-teal, #53B1A5)\"></span>Analyse 1<span class=\"ds-module-arrow\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></span></span><span class=\"ds-module-when\"><span class=\"ds-chip-sm\"><span class=\"ds-dot\" style=\"background:var(--color-important, #EAB83E)\"></span>Dans 4 jours</span>Jeudi 1 oct.</span><span class=\"ds-track\"><span class=\"ds-fill\" style=\"width:54%\"></span></span><span class=\"ds-module-count\"><strong>15</strong> notions acquises sur 28</span></a>",
+      "css": ".ds-module { display: flex; flex-direction: column; gap: 16px; width: 340px; padding: 24px; background: var(--color-surface, #FFFFFF); color: var(--color-ink, #1C1B21); border: 1px solid var(--color-hairline, #E4E0DB); border-radius: 16px; box-shadow: 0 1px 2px rgba(28, 27, 33, 0.04), 0 2px 8px rgba(28, 27, 33, 0.04); text-decoration: none; font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; transition: box-shadow 200ms cubic-bezier(0.25, 1, 0.5, 1); } .ds-module:hover { box-shadow: 0 2px 4px rgba(28, 27, 33, 0.05), 0 8px 20px rgba(28, 27, 33, 0.07); } .ds-module:focus-visible { outline: 2px solid var(--color-ember, #ED8139); outline-offset: 2px; } .ds-module-head { display: flex; align-items: center; gap: 12px; font: 700 1.25rem/1.3 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; } .ds-sq { width: 12px; height: 12px; border-radius: 3px; } .ds-module-arrow { margin-left: auto; color: var(--color-ink-muted, #646269); display: inline-flex; } .ds-module-when { display: flex; align-items: center; gap: 12px; color: var(--color-ink-muted, #646269); font: 500 1rem/1.5 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; } .ds-chip-sm { display: inline-flex; align-items: center; gap: 6px; padding: 4px 8px; border-radius: 6px; background: var(--color-important-tint, #FDF5D4); color: var(--color-important-ink, #7A5A00); font: 700 0.8125rem/1.2 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; } .ds-dot { width: 8px; height: 8px; border-radius: 9999px; display: inline-block; flex: none; } .ds-track { height: 8px; border-radius: 9999px; background: var(--color-module-teal-tint, #E2F5F3); overflow: hidden; } .ds-fill { display: block; height: 100%; border-radius: 9999px; background: var(--color-module-teal, #53B1A5); } .ds-module-count { color: var(--color-ink-soft, #4A4951); font: 500 1rem/1.5 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Marked Trail",
+    "overview": "RevisionOS is a walk along a trail someone has already marked for you. The ground is warm paper (#FFFCF7); almost nothing on it is colored. Color appears only where it marks the route: the concept you should open now, the status of each concept on the graph, the module you are in, and how far along you are. The mockup's own line carries the whole system: *\"Toi, tu suis simplement le chemin.\"* If a screen has color that does not mark position, status, or module identity, the color is decoration and must go.\n\nThe student is an Algerian university student at a desk or in a university library, in daylight or under a lamp in the evening, a few days before an exam and slightly anxious about what to open first. That scene forces a light, warm theme: paper that reads like a printed course polycopié, dark ink for text, low contrast between surfaces so the page stays calm, and strong contrast only on the next action. The MVP ships light only; dark mode is not designed and must not be improvised. Density is moderate: generous page margins (48 to 64px), compact graph nodes, and one clear primary action per view. The product is product-register UI. It should feel as trustworthy as Linear or Notion, not like a marketing page.\n\nThis system rejects the look of a generic SaaS dashboard: no hero-metric tiles, no identical icon-card grids, no gradient glow buttons, no glassmorphism, no purple-on-dark AI styling. It also rejects gamified study apps: no streak flames, confetti, mascots, or points economies. Trust comes from evidence on the page (course page, TD exercise, exam year and points), not from decoration.",
+    "keyCharacteristics": [
+      "Warm paper canvas, white working surfaces, near-black ink; color only marks the trail.",
+      "One ember accent for \"you are here\": current concept, selected choice, progress, active nav.",
+      "A four-word status vocabulary (Urgent, Important, Plus tard, Acquis), always dot + word + tint.",
+      "Evidence rows (course page, TD exercise, exam year and points) sit next to every recommendation.",
+      "Heavy 800-weight headlines, calm 400/500 body, one family.",
+      "Flat surfaces with hairlines; a single warm halo for the focused item."
+    ],
+    "rules": [
+      {
+        "name": "The Ember Marks the Trail Rule",
+        "body": "Ember and its variants cover at most 10% of any screen and only ever mean \"current position, current selection, or progress\". A second ember element that is not the current thing is forbidden.",
+        "section": "colors"
+      },
+      {
+        "name": "The Dot Word Tint Rule",
+        "body": "A status is always three things together: a colored dot, the French word, and the status tint. Color alone never carries a status, so it survives color blindness and grayscale printing.",
+        "section": "colors"
+      },
+      {
+        "name": "The Module Colors Are Names Rule",
+        "body": "Teal and rose identify modules and never signal status. A new module gets the next identity hue from a fixed list (ember, teal, rose, then an indigo and an olive to be chosen with contrast checks); it never reuses a status hue.",
+        "section": "colors"
+      },
+      {
+        "name": "The One Family Rule",
+        "body": "Plus Jakarta Sans is the only typeface. Hierarchy comes from size and the 800 versus 500 weight contrast, never from a second family, italics for emphasis, or color.",
+        "section": "typography"
+      },
+      {
+        "name": "The French Numbers Rule",
+        "body": "Points and dates use French formatting (3,75 pts, Mardi 29 sept., J-2) and tabular numerals wherever numbers stack in a column, such as exam rows.",
+        "section": "typography"
+      },
+      {
+        "name": "The Single Halo Rule",
+        "body": "Exactly one element per view may wear the Ember Halo: the current concept or the selected choice. If two things glow, neither is current.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Paper Weight Rule",
+        "body": "If a shadow is visible from across the room, it is too dark. Rest shadows must be nearly invisible on paper; the hairline does the separating.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do attach a visible reason and source to every recommendation: course chapter and page, TD exercise, exam year, exercise, and points.",
+      "Do keep the student flow short: choose a module, answer a brief test, explore the graph. Onboarding shows its step count (\"Étape 1 sur 3\").",
+      "Do show uncertainty honestly: dashed Pencil Line borders and \"À vérifier\" for low-confidence concepts and links, \"points inconnus\" when an exam question has no point value.",
+      "Do label demonstration data on every screen that shows it, with the \"Données de démonstration\" chip.",
+      "Do keep every concept visible on the graph and highlight the essential route with solid Trail Edge lines as the exam approaches.",
+      "Do pair every status color with its dot and French word (The Dot Word Tint Rule).",
+      "Do use Study Ink (#1C1B21) for the single primary action per view and keep ember under 10% of the screen.",
+      "Do give every interactive element default, hover, focus-visible (2px ember ring), active, disabled, and loading states, and a hit target of at least 44 by 44px.",
+      "Do use skeleton placeholders shaped like nodes and rows while the graph and sources load, and empty states that explain the next step (\"Aucun document pour ce module pour l'instant. Les notions apparaîtront dès qu'un cours sera ajouté.\")."
+    ],
+    "donts": [
+      "Don't build a daily schedule, a day counter, or time estimates in the MVP; \"Notion 1 sur 3 aujourd'hui\" and \"45 min\" are future patterns only.",
+      "Don't use recency as a visual priority signal. \"Dernière apparition en 2025\" may be shown as a fact; it must not change a node's status or color.",
+      "Don't show an untested concept as not mastered. Untested stays `unknown` (\"Non testé\").",
+      "Don't let students write content in the MVP; contribution entry points may appear only as clearly disabled future features.",
+      "Don't use `border-left` or `border-right` greater than 1px as a colored stripe on cards, nodes, rows, or alerts.",
+      "Don't use gradient text, gradient borders, or multicolor glow rings (the mockup's glow around \"Commencer\" and \"Session guidée\" is removed).",
+      "Don't use glassmorphism, backdrop blur, or translucent cards.",
+      "Don't build hero-metric tiles (big number, small label, gradient accent) or grids of identical icon-plus-heading cards.",
+      "Don't open a modal as the first answer; expand inline, use the source panel, or a bottom sheet on mobile.",
+      "Don't use ember (#ED8139) as text, or pure #000 for text; text colors are the ink tokens only.",
+      "Don't add streaks, confetti, mascots, leaderboards, or points economies; progress is \"notions acquises\", nothing else.",
+      "Don't use em dashes in UI copy.",
+      "Don't invent a dark theme ad hoc; it is not designed yet."
+    ]
+  }
+}
