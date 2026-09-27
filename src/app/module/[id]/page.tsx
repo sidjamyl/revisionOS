@@ -8,6 +8,7 @@ import { ArrowLeft, ArrowRight, BookOpenText, CalendarDays, Check, CheckCircle2,
 import { AppHeader, Brand, Kicker } from '@/components/brand';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
+import { Coach } from '@/components/coach';
 import { PdfPreview } from '@/components/pdf-preview';
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
@@ -176,6 +177,7 @@ export default function ModulePage() {
   const [examDay, setExamDay] = useState('');
   const [flowNodes, setFlowNodes, onNodesChange] = useNodesState<FlowNode>([]);
   const [chapterId, setChapterId] = useState<string | null>(null);
+  const [coachTopicId, setCoachTopicId] = useState<string | null>(null);
   const detailsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => { setFocus(window.localStorage.getItem('revisionos:focus:graph') === 'true'); }, []);
@@ -253,6 +255,7 @@ export default function ModulePage() {
     setFlowNodes(previous => graph.nodes.map(node => ({ ...node, position: (sameView && previous.find(item => item.id === node.id)?.position) || node.position })));
   }, [graph.nodes, setFlowNodes, layoutKey]);
 
+  const coachTopic = roadmap?.topics.find(item => item.id === coachTopicId) ?? null;
   const exit = <a href="/" className={buttonVariants({ variant: 'ghost', size: 'sm' })}><ArrowLeft size={15}/> Home</a>;
   if (error && !module) return <main className="min-h-svh"><AppHeader>{exit}</AppHeader><Card className="mx-auto mt-16 max-w-xl p-6 text-sm text-destructive" role="alert">{error}</Card></main>;
   if (!module || !roadmap) return <main className="min-h-svh"><AppHeader>{exit}</AppHeader><div className="mx-auto mt-16 w-[min(calc(100%-40px),640px)] space-y-4" aria-label="Loading your roadmap"><div className="h-1.5 animate-pulse rounded-full bg-secondary"/><div className="h-10 w-3/4 animate-pulse rounded-lg bg-secondary"/><div className="h-40 animate-pulse rounded-xl bg-secondary"/></div></main>;
@@ -298,7 +301,7 @@ export default function ModulePage() {
     </main>;
   }
 
-  return <main className="min-h-screen">
+  return <main className={cn('min-h-screen', coachTopic && 'pb-56')}>
     <span className="sr-only" aria-live="polite">{focus ? 'Focus mode activated' : 'Focus mode deactivated'}</span>
     {!focus && <header className="border-b border-[#e4e0db] bg-white"><div className="mx-auto flex max-w-[1540px] items-center justify-between px-5 py-4 sm:px-8"><a href="/" className="flex items-center gap-2 text-sm font-semibold text-[#646269]"><ArrowLeft size={17}/> Home</a><Brand/></div></header>}
     <div className="mx-auto max-w-[1540px] px-5 pb-16 pt-8 sm:px-8">
@@ -307,7 +310,7 @@ export default function ModulePage() {
       <>
         <div className="mt-7 flex flex-wrap items-center gap-x-8 gap-y-2 border-y border-[#e4e0db] py-4 text-sm text-[#4a4951]"><span><strong className="text-[#1c1b21]">{mastered.size} / {roadmap.topics.length}</strong> mastered</span><span><strong className="text-[#1c1b21]">{roadmap.topics.filter(topic => topic.essential && !mastered.has(topic.id)).length}</strong> priority concepts left</span><label className="flex items-center gap-2"><CalendarDays size={15} className="text-[#965935]"/><input type="date" min={new Date().toISOString().slice(0, 10)} value={examDay} onChange={event => changeExamDate(event.target.value)} aria-label="Exam date" className="h-8 rounded-md border bg-background px-2 text-[13px] outline-none focus-visible:ring-[3px] focus-visible:ring-ring/40"/><strong className={cn('text-[#1c1b21]', roadmap.examDays !== null && roadmap.examDays <= 7 && 'text-destructive')}>{countdownLabel(roadmap.examDays)}</strong></label>{roadmap.examDays !== null && (() => { const left = roadmap.topics.filter(topic => topic.essential && !mastered.has(topic.id)).length; const perDay = left ? Math.ceil(left / Math.max(1, roadmap.examDays)) : 0; return <span><strong className="text-[#1c1b21]">{perDay}</strong> concept{perDay === 1 ? '' : 's'} per day to be ready</span>; })()}</div>
         <div className="mt-7 flex flex-wrap items-center justify-between gap-3"><div><div className="flex flex-wrap items-center gap-3"><h2 className="text-xl font-bold">Concept map</h2><div role="tablist" aria-label="Graph detail" className="inline-flex rounded-lg border bg-secondary p-0.5">{(['overview', 'detailed'] as const).map(item => <button key={item} role="tab" aria-selected={view === item} onClick={() => changeView(item)} className={cn('h-7 rounded-md px-3 text-[13px] font-medium transition-colors', view === item ? 'bg-background text-foreground shadow-xs ring-1 ring-border' : 'text-muted-foreground hover:text-foreground')}>{item === 'overview' ? `Overview · ${Math.min(12, roadmap.topics.length)}` : `Detailed · ${roadmap.topics.length}`}</button>)}</div></div><p className="mt-1 text-sm text-[#718894]">{view === 'overview' ? 'Key concepts only, with condensed prerequisite links. Switch to Detailed for every concept.' : 'Concepts grouped by chapter. Arrows show which chapters build on others; open a chapter to see its concept graph.'} Drag to pan, use + and − to zoom, and click a concept to see its resources.</p></div><div className="flex flex-wrap gap-3 text-xs text-[#6f8793]"><span className="flex items-center gap-1.5"><i className="h-2.5 w-2.5 rounded-full bg-[#8fd0b8]"/> mastered</span><span className="flex items-center gap-1.5"><i className="h-2.5 w-2.5 rounded-full bg-[#e7ca83]"/> priority</span><span className="flex items-center gap-1.5"><i className="h-2.5 w-2.5 rounded-full bg-[#dce5e8]"/> other</span></div></div>
-        <Card className={cn('relative mt-4 grid overflow-hidden', !focus && 'lg:grid-cols-[minmax(0,1fr)_370px]')}><div className="h-[570px] min-w-0 bg-[#fcfcfc] sm:h-[650px]"><ReactFlow key={layoutKey} zoomOnScroll={false} preventScrolling={false} zoomOnPinch zoomOnDoubleClick={false} fitViewOptions={{ padding: 0.15 }} nodes={flowNodes} edges={graph.edges} nodeTypes={nodeTypes} onNodesChange={onNodesChange} onNodeClick={(_, node) => { if (node.type === 'chapter') { setChapterId(node.id); setSelectedId(null); } else setSelectedId(node.id); }} nodesDraggable fitView minZoom={0.2} maxZoom={2}><Background variant={BackgroundVariant.Dots} color="#c9c6c2" bgColor="#fcfcfc" gap={18} size={1.6}/><ZoomControls/>
+        <Card className={cn('relative mt-4 grid overflow-hidden', !focus && 'lg:grid-cols-[minmax(0,1fr)_370px]')}><div className="h-[570px] min-w-0 bg-[#fcfcfc] sm:h-[650px]"><ReactFlow key={layoutKey} zoomOnScroll={false} preventScrolling={false} zoomOnPinch zoomOnDoubleClick={false} fitViewOptions={{ padding: 0.15 }} nodes={flowNodes} edges={graph.edges} nodeTypes={nodeTypes} onNodesChange={onNodesChange} onNodeClick={(_, node) => { if (node.type === 'chapter') { setChapterId(node.id); setSelectedId(null); } else { setSelectedId(node.id); setCoachTopicId(node.id); } }} nodesDraggable fitView minZoom={0.2} maxZoom={2}><Background variant={BackgroundVariant.Dots} color="#c9c6c2" bgColor="#fcfcfc" gap={18} size={1.6}/><ZoomControls/>
           {view === 'detailed' && <Panel position="top-left" className="flex items-center gap-1.5 rounded-lg border bg-white/95 px-2 py-1.5 text-[13px] shadow-xs backdrop-blur">
             {openChapter ? <><button className="inline-flex items-center gap-1 rounded-md px-2 py-1 font-medium text-[#646269] hover:bg-[#f7f7f8] hover:text-[#1c1b21]" onClick={() => { setChapterId(null); setSelectedId(null); }}><ArrowLeft size={14}/> All chapters</button><span className="text-[#cfcac3]">/</span><span className="px-1 font-semibold text-[#1c1b21]">{openChapter.title}</span><span className="text-[#646269]">· {openChapter.topicIds.length} concepts</span></>
               : <span className="px-2 py-1 text-[#646269]"><b className="text-[#1c1b21]">{chapters.length} chapters</b> · click one to open its concepts</span>}
@@ -317,6 +320,7 @@ export default function ModulePage() {
         <div className="mt-6 rounded-xl border border-dashed border-[#cbd8df] p-5 text-sm text-[#6c8390]"><div className="flex items-center gap-2 font-semibold text-[#4b6a79]"><CircleHelp size={16}/> Missing a course or module?</div><p className="mt-1">Student resource contributions are coming soon. For now, the team adds the documents.</p></div>
       </>
     </div>
+    {coachTopic && <Coach topic={coachTopic} prerequisiteTitles={coachTopic.prerequisites.map(prerequisite => roadmap.topics.find(item => item.id === prerequisite)?.title).filter((title): title is string => Boolean(title))} onClose={() => setCoachTopicId(null)}/>}
     {previewSource && <PdfPreview source={previewSource} onClose={() => setPreviewSource(null)}/>}
   </main>;
 }
