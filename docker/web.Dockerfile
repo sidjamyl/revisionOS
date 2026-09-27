@@ -9,7 +9,7 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 # Baked into the build: Next.js rewrites are resolved at build time.
-ARG API_URL=http://api:4000
+ARG API_URL=http://revisionos-api:4000
 ENV API_URL=$API_URL NEXT_TELEMETRY_DISABLED=1
 RUN npm run build
 

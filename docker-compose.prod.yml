@@ -33,16 +33,23 @@ services:
       AIGRID_EMBED_API_KEY: ${AIGRID_EMBED_API_KEY}
     volumes:
       - appdata:/app/.data
+    networks:
+      default:
+        # Unique name: "api" is ambiguous once web joins Dokploy's shared network.
+        aliases:
+          - revisionos-api
 
   web:
     build:
       context: .
       dockerfile: docker/web.Dockerfile
       args:
-        API_URL: http://api:4000
+        API_URL: http://revisionos-api:4000
     restart: unless-stopped
     depends_on:
       - api
+    networks:
+      - default
     expose:
       - "3000"
 
