@@ -1,12 +1,26 @@
 @import "tailwindcss";
 
-:root { color-scheme: light; }
+:root {
+  color-scheme: light;
+  --paper: #fffcf7;
+  --surface: #fff;
+  --inset: #f6f5f1;
+  --ink: #1c1b21;
+  --ink-soft: #4a4951;
+  --ink-muted: #646269;
+  --hairline: #e4e0db;
+  --ember: #ed8139;
+  --ember-tint: #fcf0e4;
+  --ember-deep: #965935;
+}
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
-body { margin: 0; background: #f7f9f8; color: #18324a; font-family: Arial, Helvetica, sans-serif; }
+body { margin: 0; background: var(--paper); color: var(--ink); }
 button, input, select { font: inherit; }
 button { cursor: pointer; }
-::selection { background: #c5e4dc; }
+::selection { background: #fcdfc6; }
+:focus-visible { outline-color: var(--ember); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
 .react-flow__attribution { display: none; }
-.react-flow__controls { box-shadow: none !important; border: 1px solid #dbe4e9 !important; border-radius: 12px !important; overflow: hidden; }
+.react-flow__controls { box-shadow: none !important; border: 1px solid var(--hairline) !important; border-radius: 10px !important; overflow: hidden; }
 .react-flow__controls-button { width: 32px !important; height: 32px !important; }
