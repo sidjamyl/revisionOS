@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import { assertAcyclic, buildRoadmap, gradeQuiz } from '../api/domain';
 import { demoModules } from '../api/demo-data';
+import { localSourceFileNames } from '../api/verified-evidence';
 import type { ModuleData, Topic } from '../src/shared/types';
 
 function topic(id: string, prerequisites: string[] = []): Topic {
@@ -58,4 +59,16 @@ test('IGL 2023 evidence accounts for the full 20-point paper exactly once', () =
   assert.equal(questions.reduce((sum, item) => sum + (item.points ?? 0), 0), 20);
   assert.equal(new Set(questions.map(item => item.question)).size, questions.length);
   assert.equal(new Set(module.occurrences.map(item => item.examId)).size, 2);
+});
+
+test('every curated PDF citation has a whitelisted local source file', () => {
+  for (const module of demoModules) {
+    for (const topic of module.topics) {
+      for (const source of topic.sources) {
+        if (!source.url?.startsWith('/api/source-pdfs/')) continue;
+        assert.ok(localSourceFileNames[source.url.split('/').at(-1)!], source.url);
+        assert.ok(source.page && source.page > 0, source.url);
+      }
+    }
+  }
 });

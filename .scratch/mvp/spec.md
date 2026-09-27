@@ -11,6 +11,7 @@ Status: active
 - [x] Manually checked two 20-point IGL papers (2018 and 2023), with one primary topic per scored question.
 - [x] Local corpus importer, gated on a configured model, for all 35 PDFs.
 - [x] pgvector schema and course-page retrieval path for grounding TD/exam matching (not yet model-tested).
+- [x] Whitelisted local PDF delivery for page-specific citations, with public Drive fallback.
 - [x] Unit checks for the DAG, score aggregation and quiz semantics.
 
 ## Remaining before a full corpus-backed demo

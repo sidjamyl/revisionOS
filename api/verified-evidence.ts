@@ -24,6 +24,30 @@ const files = {
   iglExam2023: '1840W9rsseJPHiSgtPNCYn4j4nik7QTA6',
 } as const;
 
+export const localSourceFileNames: Record<string, string> = {
+  [files.algLogic]: 'esi-alg1-course-logic.pdf',
+  [files.algStructures]: 'esi-alg1-course-structures.pdf',
+  [files.algPolynomials]: 'esi-alg1-course-polynomials.pdf',
+  [files.algTdLogic]: 'esi-alg1-td-logic.pdf',
+  [files.algTdStructures]: 'esi-alg1-td-structures.pdf',
+  [files.algTdPolynomials]: 'esi-alg1-td-polynomials.pdf',
+  [files.algExam2022]: 'esi-alg1-exam-2022.pdf',
+  [files.algExam2023]: 'esi-alg1-exam-2023.pdf',
+  [files.algExam2025]: 'esi-alg1-exam-2025.pdf',
+  [files.iglMethods]: 'esi-igl-course-01-methodologies.pdf',
+  [files.iglModeling]: 'esi-igl-course-02-modeling.pdf',
+  [files.iglRequirements]: 'esi-igl-course-03-requirements.pdf',
+  [files.iglAnalysis]: 'esi-igl-course-04-analysis.pdf',
+  [files.iglArchitecture]: 'esi-igl-course-05-architecture.pdf',
+  [files.iglDesign]: 'esi-igl-course-06-design.pdf',
+  [files.iglTesting]: 'esi-igl-course-07-testing.pdf',
+  [files.iglTd1]: 'esi-igl-td-01.pdf',
+  [files.iglTd2]: 'esi-igl-td-02.pdf',
+  [files.iglTd3]: 'esi-igl-td-03.pdf',
+  [files.iglExam2018]: 'esi-igl-exam-2018.pdf',
+  [files.iglExam2023]: 'esi-igl-exam-2023.pdf',
+};
+
 type Evidence = [topicId: string, kind: SourceKind, title: string, page: number, excerpt: string, fileId: string];
 
 const algebraEvidence: Evidence[] = [
@@ -120,12 +144,12 @@ const iglExamQuestions: ExamQuestion[] = [
   ['igl-2023', 2023, 'igl-tests', 4, 1, 'Q22: evaluation test case', 'Rédigez un cas de test', files.iglExam2023],
 ];
 
-function driveUrl(fileId: string) {
-  return `https://drive.google.com/file/d/${fileId}/view`;
+function sourceUrl(fileId: string) {
+  return `/api/source-pdfs/${fileId}`;
 }
 
 function addSource(topic: Topic, kind: SourceKind, title: string, page: number, excerpt: string, fileId: string, extra: Partial<Source> = {}): Source {
-  const source: Source = { id: `${fileId}-${topic.id}-${topic.sources.length}`, kind, title, page, excerpt, url: driveUrl(fileId), ...extra };
+  const source: Source = { id: `${fileId}-${topic.id}-${topic.sources.length}`, kind, title, page, excerpt, url: sourceUrl(fileId), ...extra };
   topic.sources.push(source);
   return source;
 }

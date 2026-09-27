@@ -1,4 +1,5 @@
 import { createReadStream } from 'node:fs';
+import { access } from 'node:fs/promises';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { randomUUID } from 'node:crypto';
@@ -10,6 +11,7 @@ import { catalog } from './demo-data';
 import { buildRoadmap, gradeQuiz } from './domain';
 import { processDocument } from './ingestion';
 import { getDocument, getModule, listDocuments, saveDocument } from './repository';
+import { localSourceFileNames } from './verified-evidence';
 import type { SourceKind } from '../src/shared/types';
 
 const app = Fastify({ logger: true });
@@ -108,6 +110,20 @@ app.get<{ Params: { id: string } }>('/api/documents/:id/file', async (request, r
   reply.type('application/pdf');
   reply.header('Content-Disposition', `inline; filename="${document.id}.pdf"`);
   return reply.send(createReadStream(document.path));
+});
+
+app.get<{ Params: { id: string } }>('/api/source-pdfs/:id', async (request, reply) => {
+  if (!Object.hasOwn(localSourceFileNames, request.params.id)) return reply.code(404).send({ error: 'Unknown source PDF.' });
+  const name = localSourceFileNames[request.params.id];
+  const path = join(process.cwd(), '.data', 'imports', name);
+  try {
+    await access(path);
+  } catch {
+    return reply.redirect(`https://drive.google.com/file/d/${request.params.id}/view`);
+  }
+  reply.type('application/pdf');
+  reply.header('Content-Disposition', `inline; filename="${name}"`);
+  return reply.send(createReadStream(path));
 });
 
 await app.listen({ port: Number(process.env.API_PORT ?? 4000), host: '127.0.0.1' });

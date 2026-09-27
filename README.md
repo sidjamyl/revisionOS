@@ -12,7 +12,7 @@ The UI is in English. Academic PDFs may be in English, French or another languag
 - A PostgreSQL document store with pgvector course-page indexing. TD and exam matching retrieves related course passages before assigning a primary concept. This retrieval path is implemented but **not yet verified against the supplied corpus** without model credentials.
 - The complete AI flow is **not verified** until an API key or compatible local model is supplied. Import failures are shown explicitly in the admin workspace.
 
-The original academic PDFs are excluded from Git. The preview links to their [shared Drive folder](https://drive.google.com/drive/folders/1x1c97ZiqCHsZHAytwxOpztiUz6jO_x06). Keep its reader access enabled for a public demo.
+The original academic PDFs are excluded from Git. Cited pages open from the ignored local corpus through the API, allowing the browser PDF reader to target the right page. If a local file is absent, the API redirects to the [shared Drive folder](https://drive.google.com/drive/folders/1x1c97ZiqCHsZHAytwxOpztiUz6jO_x06); Google Drive may start at page 1 instead. Keep Drive reader access enabled and download the corpus on the demo host.
 
 ## Start locally
 
