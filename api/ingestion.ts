@@ -62,7 +62,7 @@ function generationOptions() {
   // AIGrid forwards this Qwen setting to the OpenAI-compatible endpoint. Without
   // it, the model can spend the whole response budget on hidden reasoning.
   return process.env.AI_PROVIDER === 'aigrid'
-    ? { providerOptions: { 'aigrid-chat': { reasoning_effort: 'low' } } }
+    ? { providerOptions: { aigridChat: { reasoning_effort: 'low' } } }
     : {};
 }
 
