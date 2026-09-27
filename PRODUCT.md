@@ -24,7 +24,7 @@ Revision priorities are grounded in the module's course material, TDs, and past 
 
 ## Operating Context
 
-The MVP uses Algebra 1 and Introduction to Software Engineering (IGL) from ESI when the team supplies their documents. The catalog may contain other verified Algerian university programs, but full document processing initially targets those two modules. Students select institution, program, year, specialty when relevant, and module before a brief level test. The examination date changes the emphasis of high frequency and high point concepts without creating a daily schedule.
+The MVP uses Algebra 1 and Introduction to Software Engineering (IGL) from ESI. The team supplied 35 PDFs via a shared Google Drive folder: courses, TDs and past exams for both modules. The catalog may contain other verified Algerian university programs, but full document processing initially targets these two modules. The interface is in English; the source documents may be in any language. Students select institution, program, year, specialty when relevant, and module before a brief level test. The examination date changes the emphasis of high frequency and high point concepts without creating a daily schedule.
 
 ## Capabilities and Constraints
 
@@ -36,11 +36,11 @@ The MVP uses Algebra 1 and Introduction to Software Engineering (IGL) from ESI w
 - A short module test asks six to eight questions. Untested concepts remain `unknown` rather than being marked unmastered.
 - The graph keeps all concepts visible. As the exam approaches, it highlights an essential route through prerequisites and historically important concepts.
 - Students can mark a concept mastered. Student content contributions appear only as a coherent future feature in the frontend; they do not write data in this MVP.
-- The demo uses source code, presentation, and a 90 second video. User supplied academic documents have not yet arrived.
+- The demo uses source code, presentation, and a 90 second video.
 
 ## Evidence on Hand
 
-No course, TD, or past exam PDF has been provided yet. Sample academic content must be labeled as demonstration data until it is replaced with supplied or verified public material.
+The 35 ESI PDFs are available locally under ignored `.data/imports/`. The checked-in source-backed preview cites verified passages and questions from a subset of those PDFs. It must remain labeled provisional until the entire corpus is processed. Do not publish the original PDFs in Git without explicit permission.
 
 ## Product Principles
 

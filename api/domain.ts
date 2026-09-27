@@ -1,4 +1,4 @@
-import type { ExamOccurrence, ModuleData, Roadmap, RoadmapTopic, Topic } from '../src/shared/types';
+import type { ModuleData, Roadmap, RoadmapTopic, Topic } from '../src/shared/types';
 
 export function assertAcyclic(topics: Topic[]): void {
   const byId = new Map(topics.map(topic => [topic.id, topic]));
@@ -40,14 +40,24 @@ export function buildRoadmap(module: ModuleData, examDate?: string): Roadmap {
   const topics: RoadmapTopic[] = module.topics.map(topic => {
     const appearances = module.occurrences.filter(item => item.topicId === topic.id);
     const appearanceCount = new Set(appearances.map(item => item.examId)).size;
-    const withPoints = appearances.filter(item => item.points !== null);
-    const averagePoints = withPoints.length === 0
+    const pointsByExam = new Map<string, { points: number; totalPoints: number | null }>();
+    for (const item of appearances) {
+      if (item.points === null) continue;
+      const previous = pointsByExam.get(item.examId);
+      pointsByExam.set(item.examId, {
+        points: (previous?.points ?? 0) + item.points,
+        totalPoints: item.totalPoints ?? previous?.totalPoints ?? null,
+      });
+    }
+    const knownPoints = [...pointsByExam.values()];
+    const averagePoints = knownPoints.length === 0
       ? null
-      : withPoints.reduce((sum, item) => sum + item.points!, 0) / withPoints.length;
+      : knownPoints.reduce((sum, item) => sum + item.points, 0) / knownPoints.length;
     const frequency = examCount === 0 ? 0 : appearanceCount / examCount;
-    const pointsShare = withPoints.length === 0
+    const withKnownTotal = knownPoints.filter(item => item.totalPoints !== null && item.totalPoints > 0);
+    const pointsShare = withKnownTotal.length === 0
       ? 0
-      : withPoints.reduce((sum, item) => sum + item.points! / item.totalPoints, 0) / withPoints.length;
+      : withKnownTotal.reduce((sum, item) => sum + item.points / item.totalPoints!, 0) / withKnownTotal.length;
     return {
       ...topic,
       layer: layer(topic.id),
@@ -62,7 +72,7 @@ export function buildRoadmap(module: ModuleData, examDate?: string): Roadmap {
   const ranked = [...topics].sort((a, b) => b.importance - a.importance || a.layer - b.layer);
   const fraction = examDays !== null && examDays <= 14 ? 0.4 : 0.65;
   const essentialIds = new Set<string>();
-  const selected = examCount === 0 ? ranked : ranked.slice(0, Math.max(1, Math.ceil(ranked.length * fraction)));
+  const selected = examCount === 0 ? [] : ranked.slice(0, Math.max(1, Math.ceil(ranked.length * fraction)));
   function includePrerequisites(id: string): void {
     if (essentialIds.has(id)) return;
     essentialIds.add(id);
@@ -106,8 +116,4 @@ export function gradeQuiz(module: ModuleData, answers: Record<string, number>) {
     masteredTopicIds: results.filter(result => result.correct).map(result => result.topicId),
     attempted: results.filter(result => answers[result.questionId] !== undefined).length,
   };
-}
-
-export function matchPrimaryTopic(occurrence: ExamOccurrence, topics: Topic[]) {
-  return topics.some(topic => topic.id === occurrence.topicId);
 }

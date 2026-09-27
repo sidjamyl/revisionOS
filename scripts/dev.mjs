@@ -1,7 +1,7 @@
 import { spawn } from 'node:child_process';
 
 const commands = [
-  ['api', ['--env-file=.env.local', 'node_modules/tsx/dist/cli.mjs', 'watch', 'api/server.ts']],
+  ['api', ['--env-file-if-exists=.env.local', 'node_modules/tsx/dist/cli.mjs', 'watch', 'api/server.ts']],
   ['web', ['node_modules/next/dist/bin/next', 'dev', '-p', '3000']],
 ];
 

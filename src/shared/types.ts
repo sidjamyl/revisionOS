@@ -28,7 +28,7 @@ export type ExamOccurrence = {
   year: number;
   topicId: string;
   points: number | null;
-  totalPoints: number;
+  totalPoints: number | null;
   question: string;
   sourceId: string | null;
 };
