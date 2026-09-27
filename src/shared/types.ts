@@ -10,6 +10,7 @@ export type Source = {
   year?: number | null;
   question?: string | null;
   points?: number | null;
+  estimatedPoints?: boolean;
   isDemonstration?: boolean;
 };
 
@@ -31,6 +32,7 @@ export type ExamOccurrence = {
   totalPoints: number | null;
   question: string;
   sourceId: string | null;
+  estimatedPoints?: boolean;
 };
 
 export type QuizQuestion = {

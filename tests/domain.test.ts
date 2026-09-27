@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { assertAcyclic, buildRoadmap, gradeQuiz } from '../api/domain';
+import { estimateMissingExamPoints } from '../api/ingestion';
 import { demoModules } from '../api/demo-data';
 import { localSourceFileNames } from '../api/verified-evidence';
 import type { ModuleData, Topic } from '../src/shared/types';
@@ -59,6 +60,13 @@ test('IGL 2023 evidence accounts for the full 20-point paper exactly once', () =
   assert.equal(questions.reduce((sum, item) => sum + (item.points ?? 0), 0), 20);
   assert.equal(new Set(questions.map(item => item.question)).size, questions.length);
   assert.equal(new Set(module.occurrences.map(item => item.examId)).size, 2);
+});
+
+test('splits an exercise total between subquestions whose point values are not printed', () => {
+  const match = (question: string, points: number | null) => ({ page: 1, excerpt: question, confidence: 1, topicId: question, exercise: 'Exercise 2', question, points, totalPoints: 12 });
+  const estimated = estimateMissingExamPoints([match('2a', 6), match('2b', null)]);
+  assert.deepEqual(estimated.map(item => item.points), [6, 6]);
+  assert.deepEqual(estimated.map(item => item.estimatedPoints), [false, true]);
 });
 
 test('every curated PDF citation has a whitelisted local source file', () => {

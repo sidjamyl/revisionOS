@@ -30,10 +30,6 @@ function enqueueDocument(document: Parameters<typeof processDocument>[0]) {
   });
 }
 
-function isAdmin(token: unknown): boolean {
-  return Boolean(process.env.ADMIN_TOKEN) && token === `Bearer ${process.env.ADMIN_TOKEN}`;
-}
-
 app.get('/api/health', async () => ({ ok: true }));
 app.get('/api/catalog', async () => catalog);
 
@@ -59,18 +55,16 @@ app.post<{ Params: { id: string } }>('/api/modules/:id/quiz', async (request, re
 });
 
 app.get<{ Params: { id: string } }>('/api/admin/modules/:id/documents', async (request, reply) => {
-  if (!isAdmin(request.headers.authorization)) return reply.code(401).send({ error: 'Accès administrateur requis.' });
   return listDocuments(request.params.id);
 });
 
 app.get<{ Params: { id: string } }>('/api/admin/modules/:id/stats', async (request, reply) => {
-  if (!isAdmin(request.headers.authorization)) return reply.code(401).send({ error: 'Accès administrateur requis.' });
   const module = await getModule(request.params.id);
   if (!module) return reply.code(404).send({ error: 'Module introuvable.' });
   return {
     occurrences: module.occurrences,
-    topics: buildRoadmap(module).topics.map(({ id, title, appearanceCount, examCount, averagePoints, importance }) => ({
-      id, title, appearanceCount, examCount, averagePoints, importance,
+    topics: buildRoadmap(module).topics.map(({ id, title, chapter, summary, prerequisites, sources, confidence, appearanceCount, examCount, averagePoints, importance }) => ({
+      id, title, chapter, summary, prerequisites, sources, confidence, appearanceCount, examCount, averagePoints, importance,
     })),
     isDemonstration: module.isDemonstration,
   };
@@ -78,7 +72,6 @@ app.get<{ Params: { id: string } }>('/api/admin/modules/:id/stats', async (reque
 
 app.post<{ Params: { id: string }; Querystring: { kind?: string; year?: string; title?: string } }>(
   '/api/admin/modules/:id/documents', async (request, reply) => {
-    if (!isAdmin(request.headers.authorization)) return reply.code(401).send({ error: 'Accès administrateur requis.' });
     if (!await getModule(request.params.id)) return reply.code(404).send({ error: 'Module introuvable.' });
     const kind = request.query.kind;
     if (kind !== 'course' && kind !== 'td' && kind !== 'exam') return reply.code(400).send({ error: 'Type de document invalide.' });

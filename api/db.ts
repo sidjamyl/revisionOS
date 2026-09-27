@@ -27,7 +27,8 @@ export const courseChunks = pgTable('course_chunks', {
   documentId: text('document_id').notNull(),
   page: integer('page').notNull(),
   content: text('content').notNull(),
-  embedding: vector('embedding', { dimensions: 768 }).notNull(),
+  embeddingModel: text('embedding_model').notNull(),
+  embedding: vector('embedding', { dimensions: 3584 }).notNull(),
 });
 
 const connectionString = process.env.DATABASE_URL;

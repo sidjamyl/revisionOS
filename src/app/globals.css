@@ -2,7 +2,7 @@
 
 :root {
   color-scheme: light;
-  --paper: #fffcf7;
+  --paper: #ffffff;
   --surface: #fff;
   --inset: #f6f5f1;
   --ink: #1c1b21;
@@ -18,7 +18,7 @@ html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--paper); color: var(--ink); }
 button, input, select { font: inherit; }
 button { cursor: pointer; }
-::selection { background: #fcdfc6; }
+::selection { background: var(--ember-tint); }
 :focus-visible { outline-color: var(--ember); outline-offset: 2px; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
 .react-flow__attribution { display: none; }
