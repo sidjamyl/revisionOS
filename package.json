@@ -1,0 +1,45 @@
+{
+  "name": "revisionos",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "dev:web": "next dev -p 3000",
+    "dev:api": "tsx watch api/server.ts",
+    "build": "next build",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test tests/*.test.ts",
+    "db:push": "drizzle-kit push"
+  },
+  "dependencies": {
+    "@ai-sdk/google": "latest",
+    "@ai-sdk/openai-compatible": "latest",
+    "@fastify/cors": "latest",
+    "@fastify/multipart": "latest",
+    "@xyflow/react": "latest",
+    "ai": "latest",
+    "class-variance-authority": "latest",
+    "clsx": "latest",
+    "drizzle-orm": "latest",
+    "fastify": "latest",
+    "lucide-react": "latest",
+    "next": "latest",
+    "pdfjs-dist": "latest",
+    "postgres": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "tailwind-merge": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "drizzle-kit": "latest",
+    "tailwindcss": "latest",
+    "tsx": "latest",
+    "typescript": "latest"
+  }
+}

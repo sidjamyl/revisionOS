@@ -1,0 +1,14 @@
+services:
+  db:
+    image: pgvector/pgvector:pg17
+    environment:
+      POSTGRES_DB: revisionos
+      POSTGRES_USER: revisionos
+      POSTGRES_PASSWORD: revisionos
+    ports:
+      - "5432:5432"
+    volumes:
+      - revisionos_pg:/var/lib/postgresql/data
+
+volumes:
+  revisionos_pg:
