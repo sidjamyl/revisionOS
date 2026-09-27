@@ -10,7 +10,7 @@
     "build": "next build",
     "typecheck": "tsc --noEmit",
     "test": "tsx --test tests/*.test.ts",
-    "db:push": "drizzle-kit push"
+    "db:push": "node scripts/ensure-pgvector.mjs && drizzle-kit push"
   },
   "dependencies": {
     "@ai-sdk/google": "latest",

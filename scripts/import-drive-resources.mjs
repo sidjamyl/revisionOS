@@ -7,6 +7,9 @@ if (!process.env.ADMIN_TOKEN) throw new Error('Set ADMIN_TOKEN in .env.local fir
 if (process.env.AI_PROVIDER === 'ollama' ? !process.env.OLLAMA_MODEL : !process.env.GOOGLE_GENERATIVE_AI_API_KEY) {
   throw new Error('Configure the chosen AI model in .env.local before importing the corpus.');
 }
+if (process.env.AI_PROVIDER === 'ollama' && !process.env.OLLAMA_EMBEDDING_MODEL) {
+  throw new Error('Set OLLAMA_EMBEDDING_MODEL to a 768-dimensional embedding model before importing.');
+}
 
 const baseUrl = `http://127.0.0.1:${process.env.API_PORT ?? 4000}`;
 const directory = join(process.cwd(), '.data', 'imports');

@@ -1,5 +1,5 @@
 import { drizzle } from 'drizzle-orm/postgres-js';
-import { jsonb, pgTable, text, timestamp } from 'drizzle-orm/pg-core';
+import { integer, jsonb, pgTable, text, timestamp, vector } from 'drizzle-orm/pg-core';
 import postgres from 'postgres';
 import type { ModuleData } from '../src/shared/types';
 
@@ -21,5 +21,14 @@ export const documents = pgTable('documents', {
   createdAt: timestamp('created_at', { withTimezone: true }).notNull().defaultNow(),
 });
 
+export const courseChunks = pgTable('course_chunks', {
+  id: text('id').primaryKey(),
+  moduleId: text('module_id').notNull(),
+  documentId: text('document_id').notNull(),
+  page: integer('page').notNull(),
+  content: text('content').notNull(),
+  embedding: vector('embedding', { dimensions: 768 }).notNull(),
+});
+
 const connectionString = process.env.DATABASE_URL;
-export const db = connectionString ? drizzle(postgres(connectionString), { schema: { modules, documents } }) : null;
+export const db = connectionString ? drizzle(postgres(connectionString), { schema: { modules, documents, courseChunks } }) : null;

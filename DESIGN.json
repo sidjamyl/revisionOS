@@ -3,6 +3,7 @@
   "generatedAt": "2026-09-27T11:45:18.140Z",
   "title": "Design System: RevisionOS",
   "extensions": {
+    "uiLanguage": "en",
     "colorMeta": {
       "paper": {
         "role": "neutral",

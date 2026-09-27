@@ -9,7 +9,7 @@ The UI is in English. Academic PDFs may be in English, French or another languag
 - Working student flow for ESI Algebra 1 and Introduction to Software Engineering (IGL).
 - Source-backed **preview** with verified passages from team-provided PDFs and selected exam questions. It is not a complete analysis of the 35-document corpus. The UI labels its priorities provisional.
 - Admin upload endpoint and workspace, with asynchronous PDF analysis through Vercel AI SDK. Gemini receives the original PDF, including scans and diagrams; Ollama currently receives extracted text and rejects image-only PDFs.
-- A PostgreSQL document store. The Docker image includes pgvector, reserved for semantic retrieval; vector indexing is **not yet implemented**. The current AI flow is PDF-grounded extraction and matching, not full vector RAG.
+- A PostgreSQL document store with pgvector course-page indexing. TD and exam matching retrieves related course passages before assigning a primary concept. This retrieval path is implemented but **not yet verified against the supplied corpus** without model credentials.
 - The complete AI flow is **not verified** until an API key or compatible local model is supplied. Import failures are shown explicitly in the admin workspace.
 
 The original academic PDFs are excluded from Git. The preview links to their [shared Drive folder](https://drive.google.com/drive/folders/1x1c97ZiqCHsZHAytwxOpztiUz6jO_x06). Keep its reader access enabled for a public demo.
@@ -25,7 +25,7 @@ npm run db:push
 Copy-Item .env.example .env.local
 ```
 
-In `.env.local`, set `ADMIN_TOKEN` to a long random value. To analyze documents, set either `GOOGLE_GENERATIVE_AI_API_KEY` with `AI_PROVIDER=google`, or `AI_PROVIDER=ollama` plus a compatible `OLLAMA_MODEL`. Never commit `.env.local`.
+In `.env.local`, set `ADMIN_TOKEN` to a long random value. To analyze documents, set either `GOOGLE_GENERATIVE_AI_API_KEY` with `AI_PROVIDER=google`, or `AI_PROVIDER=ollama` plus a compatible `OLLAMA_MODEL` and a 768-dimensional `OLLAMA_EMBEDDING_MODEL`. Google defaults to `gemini-embedding-001` with 768 output dimensions. Never commit `.env.local`.
 
 Then run:
 
