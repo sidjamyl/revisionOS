@@ -70,9 +70,10 @@ export function buildRoadmap(module: ModuleData, examDate?: string): Roadmap {
   });
 
   const ranked = [...topics].sort((a, b) => b.importance - a.importance || a.layer - b.layer);
-  const fraction = examDays !== null && examDays <= 14 ? 0.4 : 0.65;
+  // The closer the exam, the fewer high-priority targets (their prerequisites are still added below).
+  const targetCount = examDays === null || examDays > 14 ? 10 : examDays > 7 ? 6 : examDays > 3 ? 4 : 2;
   const essentialIds = new Set<string>();
-  const selected = examCount === 0 ? [] : ranked.slice(0, Math.max(1, Math.ceil(ranked.length * fraction)));
+  const selected = examCount === 0 ? [] : ranked.slice(0, targetCount);
   function includePrerequisites(id: string): void {
     if (essentialIds.has(id)) return;
     essentialIds.add(id);

@@ -1,23 +1,31 @@
 import { createReadStream } from 'node:fs';
-import { access } from 'node:fs/promises';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { execFile } from 'node:child_process';
+import { mkdir, stat, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { randomUUID } from 'node:crypto';
+import { promisify } from 'node:util';
 import Fastify from 'fastify';
 import cors from '@fastify/cors';
 import multipart from '@fastify/multipart';
 import { z } from 'zod';
-import { catalog } from './demo-data';
+import { catalog } from './catalog';
 import { buildRoadmap, gradeQuiz } from './domain';
 import { processDocument } from './ingestion';
 import { getDocument, getModule, listDocuments, saveDocument } from './repository';
-import { localSourceFileNames } from './verified-evidence';
 import type { SourceKind } from '../src/shared/types';
 
 const app = Fastify({ logger: true });
+const run = promisify(execFile);
 await app.register(cors, { origin: ['http://localhost:3000', 'http://127.0.0.1:3000'] });
 await app.register(multipart, { limits: { fileSize: 25 * 1024 * 1024, files: 1 } });
 const processingByModule = new Map<string, Promise<void>>();
+
+// Stored paths may come from another machine (e.g. a Windows import); resolve them inside this app's .data folder.
+function dataPath(path: string): string {
+  const normalized = path.replaceAll('\\', '/');
+  const index = normalized.lastIndexOf('/.data/');
+  return index >= 0 ? join(process.cwd(), normalized.slice(index + 1)) : path;
+}
 
 function enqueueDocument(document: Parameters<typeof processDocument>[0]) {
   const previous = processingByModule.get(document.moduleId) ?? Promise.resolve();
@@ -102,21 +110,24 @@ app.get<{ Params: { id: string } }>('/api/documents/:id/file', async (request, r
   if (!document) return reply.code(404).send({ error: 'Document introuvable.' });
   reply.type('application/pdf');
   reply.header('Content-Disposition', `inline; filename="${document.id}.pdf"`);
-  return reply.send(createReadStream(document.path));
+  return reply.send(createReadStream(dataPath(document.path)));
 });
 
-app.get<{ Params: { id: string } }>('/api/source-pdfs/:id', async (request, reply) => {
-  if (!Object.hasOwn(localSourceFileNames, request.params.id)) return reply.code(404).send({ error: 'Unknown source PDF.' });
-  const name = localSourceFileNames[request.params.id];
-  const path = join(process.cwd(), '.data', 'imports', name);
-  try {
-    await access(path);
-  } catch {
-    return reply.redirect(`https://drive.google.com/file/d/${request.params.id}/view`);
+app.get<{ Params: { id: string; page: string } }>('/api/documents/:id/page/:page', async (request, reply) => {
+  const document = await getDocument(request.params.id);
+  const page = Number(request.params.page);
+  if (!document || !Number.isInteger(page) || page < 1 || page > 1000) return reply.code(404).send({ error: 'PDF page not found.' });
+  const directory = join(process.cwd(), '.data', 'previews');
+  const prefix = join(directory, `${document.id}-${page}`);
+  const image = `${prefix}.png`;
+  try { await stat(image); } catch {
+    await mkdir(directory, { recursive: true });
+    await run('pdftoppm', ['-f', String(page), '-l', String(page), '-r', '140', '-png', '-singlefile', dataPath(document.path), prefix], { timeout: 120_000 });
   }
-  reply.type('application/pdf');
-  reply.header('Content-Disposition', `inline; filename="${name}"`);
-  return reply.send(createReadStream(path));
+  try { await stat(image); } catch { return reply.code(404).send({ error: 'PDF page not found.' }); }
+  reply.type('image/png');
+  reply.header('Cache-Control', 'private, max-age=86400');
+  return reply.send(createReadStream(image));
 });
 
-await app.listen({ port: Number(process.env.API_PORT ?? 4000), host: '127.0.0.1' });
+await app.listen({ port: Number(process.env.API_PORT ?? 4000), host: process.env.API_HOST ?? '127.0.0.1' });

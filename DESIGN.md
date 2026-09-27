@@ -1,11 +1,11 @@
 ---
 name: RevisionOS
-description: Warm paper, one marked trail. Students see what to revise, in which order, and why.
+description: White canvas, one marked trail. Students see what to revise, in which order, and why.
 colors:
-  paper: "#FFFCF7"
-  peach-panel: "#FCF1E3"
+  paper: "#FFFFFF"
+  peach-panel: "#FFFFFF"
   surface: "#FFFFFF"
-  inset: "#F6F5F1"
+  inset: "#F7F7F8"
   ink: "#1C1B21"
   ink-soft: "#4A4951"
   ink-muted: "#646269"
@@ -35,52 +35,52 @@ colors:
   module-rose-tint: "#F9E8F1"
 typography:
   display:
-    fontFamily: "Plus Jakarta Sans, ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "Inter Variable, Inter, ui-sans-serif, system-ui, sans-serif"
     fontSize: "2.75rem"
     fontWeight: 800
     lineHeight: 1.1
     letterSpacing: "-0.025em"
   headline:
-    fontFamily: "Plus Jakarta Sans, ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "Inter Variable, Inter, ui-sans-serif, system-ui, sans-serif"
     fontSize: "2.25rem"
     fontWeight: 800
     lineHeight: 1.15
     letterSpacing: "-0.02em"
   title:
-    fontFamily: "Plus Jakarta Sans, ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "Inter Variable, Inter, ui-sans-serif, system-ui, sans-serif"
     fontSize: "1.75rem"
     fontWeight: 800
     lineHeight: 1.2
     letterSpacing: "-0.015em"
   title-sm:
-    fontFamily: "Plus Jakarta Sans, ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "Inter Variable, Inter, ui-sans-serif, system-ui, sans-serif"
     fontSize: "1.25rem"
     fontWeight: 700
     lineHeight: 1.3
     letterSpacing: "-0.01em"
   body-lg:
-    fontFamily: "Plus Jakarta Sans, ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "Inter Variable, Inter, ui-sans-serif, system-ui, sans-serif"
     fontSize: "1.125rem"
     fontWeight: 400
     lineHeight: 1.5
   body:
-    fontFamily: "Plus Jakarta Sans, ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "Inter Variable, Inter, ui-sans-serif, system-ui, sans-serif"
     fontSize: "1rem"
     fontWeight: 500
     lineHeight: 1.5
   node:
-    fontFamily: "Plus Jakarta Sans, ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "Inter Variable, Inter, ui-sans-serif, system-ui, sans-serif"
     fontSize: "1rem"
     fontWeight: 700
     lineHeight: 1.3
   label:
-    fontFamily: "Plus Jakarta Sans, ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "Inter Variable, Inter, ui-sans-serif, system-ui, sans-serif"
     fontSize: "0.75rem"
     fontWeight: 700
     lineHeight: 1.3
     letterSpacing: "0.08em"
   status:
-    fontFamily: "Plus Jakarta Sans, ui-sans-serif, system-ui, sans-serif"
+    fontFamily: "Inter Variable, Inter, ui-sans-serif, system-ui, sans-serif"
     fontSize: "0.8125rem"
     fontWeight: 700
     lineHeight: 1.2
@@ -205,22 +205,22 @@ components:
 
 **Creative North Star: "The Marked Trail"**
 
-RevisionOS is a walk along a trail someone has already marked for you. The ground is warm paper (#FFFCF7); almost nothing on it is colored. Color appears only where it marks the route: the concept you should open now, the status of each concept on the graph, the module you are in, and how far along you are. The mockup's own line carries the whole system: *"Toi, tu suis simplement le chemin."* If a screen has color that does not mark position, status, or module identity, the color is decoration and must go.
+RevisionOS is a walk along a trail someone has already marked for you. The canvas is pure white (#FFFFFF), matching the FNOL reference supplied by the team; almost nothing on it is colored. Color appears where it marks the route: the concept to open now, the status of each concept on the graph, the module you are in, and progress. If a screen has color that does not mark position, status, or module identity, the color is decoration and must go.
 
-The student is an Algerian university student at a desk or in a university library, in daylight or under a lamp in the evening, a few days before an exam and slightly anxious about what to open first. That scene forces a light, warm theme: paper that reads like a printed course polycopié, dark ink for text, low contrast between surfaces so the page stays calm, and strong contrast only on the next action. The MVP ships light only; dark mode is not designed and must not be improvised. Density is moderate: generous page margins (48 to 64px), compact graph nodes, and one clear primary action per view. The product is product-register UI. It should feel as trustworthy as Linear or Notion, not like a marketing page.
+The student is an Algerian university student at a desk or in a university library, in daylight or under a lamp in the evening, a few days before an exam and slightly anxious about what to open first. The UI uses a white canvas, dark ink, subtle borders, and strong contrast on the next action. The MVP ships light only. Density is moderate: generous page margins, compact graph nodes, and one clear primary action per view.
 
 This system rejects the look of a generic SaaS dashboard: no hero-metric tiles, no identical icon-card grids, no gradient glow buttons, no glassmorphism, no purple-on-dark AI styling. It also rejects gamified study apps: no streak flames, confetti, mascots, or points economies. Trust comes from evidence on the page (course page, TD exercise, exam year and points), not from decoration.
 
-**Layout skeleton.** App shell: a fixed left sidebar (256px, `surface` on `paper` with a hairline divider) holding the wordmark, primary nav, the student's module list with countdown badges, and the profile at the bottom; the content column sits on `paper` with 48 to 64px padding. The module view splits into the concept graph canvas (flexible) and a source panel (360px) on the right. Onboarding uses a split screen: a `peach-panel` story panel (about 40%, `xl` radius, inset 24px from the viewport edge) and the question on `paper` (about 60%) with the step progress at the top and the primary action anchored bottom right. Below 1024px the sidebar collapses to a top bar with a menu sheet; below 768px the source panel becomes a bottom sheet over the graph, onboarding drops the story panel, and choice cards stack to one column. The graph stays pannable and zoomable at every width; never shrink nodes below the `node` type size to make them fit.
+**Layout skeleton.** The current MVP has a narrow translucent top bar (dark brand mark, step or context in the center, one quiet action on the right) and a centered content column. Onboarding and the knowledge check share one pattern: a segmented progress bar, a kicker pill, a large 600-weight title with tight tracking, then choice rows (index, icon tile, label and detail, check). Onboarding adds a sticky "Your setup" summary card at desktop widths. These screens use the shadcn/ui primitives in `src/components/ui` on the tokens defined in `globals.css`. The module view splits into a dotted concept graph canvas and a source panel on the right at desktop widths. The graph remains pannable and zoomable at every width, and its nodes can be dragged. The overview uses white panels and subtle borders.
 
 **Motion.** Motion conveys state only. Transitions run 150 to 250ms with an ease-out-quart curve (`cubic-bezier(0.25, 1, 0.5, 1)`); no bounce, no elastic, no page-load choreography. Allowed moments: the selected card's halo fading in, the source panel sliding in when a node is opened, the essential route edges brightening when the exam date changes the emphasis, a progress bar filling after "J'ai compris cette notion". Animate `opacity` and `transform` only. Under `prefers-reduced-motion`, cut to instant state changes.
 
 **Voice on screen.** The shipped interface is in English, per the product decision. Keep labels short and benefit-led ("See what to study first"). Academic source excerpts stay in their original language, including French and Arabic. Format dates and point values for the English UI. French examples elsewhere in this guide describe the original visual reference; translate them rather than shipping French UI copy.
 
-**Implementation mapping (Next.js).** Tokens in the frontmatter are the source of truth. They become CSS custom properties in `src/app/globals.css`, exposed to Tailwind v4 through `@theme` (e.g. `--color-paper`, `--color-ember`, `--color-urgent-ink`, `--radius-md`, `--font-sans`) so utilities read `bg-paper`, `text-urgent-ink`, `rounded-md`. shadcn/ui variables map onto the same tokens: `--background` = paper, `--foreground` = ink, `--card` / `--popover` = surface, `--primary` = ink, `--primary-foreground` = paper, `--secondary` = inset, `--muted` = inset, `--muted-foreground` = ink-muted, `--accent` = ember-tint, `--accent-foreground` = ember-deep, `--destructive` = urgent-ink, `--border` / `--input` = hairline, `--ring` = ember, `--radius` = 10px. Load Plus Jakarta Sans once in `src/app/layout.tsx` with `next/font/google` (`Plus_Jakarta_Sans`, subsets `latin` and `latin-ext`, weights 400/500/700/800, `display: "swap"`, `variable: "--font-sans"`) so there is no layout shift and no external font request. React Flow nodes and edges are custom components styled with these tokens; the React Flow default theme is never shipped. Icons come from `lucide-react` at 20px with a 1.75 stroke, in `ink-muted` unless they mark state.
+**Implementation mapping (Next.js).** Tokens in the frontmatter map to CSS custom properties in `src/app/globals.css`. `src/app/layout.tsx` self-hosts the exact Inter Latin variable WOFF2 observed on the team-provided FNOL reference page through `next/font/local`. React Flow nodes and edges use the application palette; icons come from `lucide-react`.
 
 **Key Characteristics:**
-- Warm paper canvas, white working surfaces, near-black ink; color only marks the trail.
+- Pure white canvas and working surfaces, near-black ink; color marks the trail.
 - One ember accent for "you are here": current concept, selected choice, progress, active nav.
 - A four-word status vocabulary (Urgent, Important, Plus tard, Acquis), always dot + word + tint.
 - Evidence rows (course page, TD exercise, exam year and points) sit next to every recommendation.
@@ -248,10 +248,9 @@ Each status has a dot color, a tint for chips and node backgrounds, and a text i
 - **Algebra Ember** (uses #ED8139), **Lagoon Teal** (#53B1A5, tint #E2F5F3), **Rose Ink** (#D95597, tint #F9E8F1): a module's color square in the sidebar, module card, and page title, plus its progress bar. They name modules and nothing else.
 
 ### Neutral
-- **Polycopié Paper** (#FFFCF7): app canvas behind everything.
-- **Peach Panel** (#FCF1E3): the onboarding story panel only.
+- **White Canvas** (#FFFFFF): app canvas and overview panel.
 - **Sheet White** (#FFFFFF): working surfaces: sidebar, cards, graph canvas, source panel, graph nodes.
-- **Inset Stone** (#F6F5F1): recessed rows inside a surface (course source row, input fields, secondary hover).
+- **Inset Gray** (#F7F7F8): recessed rows inside a surface (course source row, input fields, secondary hover).
 - **Study Ink** (#1C1B21): headings, primary text, primary button fill.
 - **Soft Ink** (#4A4951): body and explanation text, nav labels.
 - **Quiet Ink** (#646269): subtitles, meta text, icons at rest.
@@ -268,8 +267,8 @@ Each status has a dot color, a tint for chips and node backgrounds, and a text i
 
 ## 3. Typography
 
-**Display Font:** Plus Jakarta Sans (with ui-sans-serif, system-ui, sans-serif)
-**Body Font:** Plus Jakarta Sans
+**Display Font:** Inter Variable (with Inter, ui-sans-serif, system-ui, sans-serif)
+**Body Font:** Inter Variable
 **Label/Mono Font:** none; numerals use `font-variant-numeric: tabular-nums` where they align.
 
 **Character:** One warm, slightly geometric sans with full Latin Extended coverage for French accents. Very heavy 800 headlines give the calm pages a confident spine; 400 to 500 body keeps explanations easy to read under tired eyes.
@@ -286,7 +285,7 @@ Each status has a dot color, a tint for chips and node backgrounds, and a text i
 - **Status** (700, 0.8125rem): status chips, countdown badges, the status word inside nodes.
 
 ### Named Rules
-**The One Family Rule.** Plus Jakarta Sans is the only typeface. Hierarchy comes from size and the 800 versus 500 weight contrast, never from a second family, italics for emphasis, or color.
+**The One Family Rule.** Inter Variable is the only typeface. Hierarchy comes from size and weight contrast, never from a second family or decorative font.
 
 **The French Numbers Rule.** Points and dates use French formatting (3,75 pts, Mardi 29 sept., J-2) and tabular numerals wherever numbers stack in a column, such as exam rows.
 
@@ -363,7 +362,7 @@ Confident and quiet: dark ink for the one action that moves the trail forward, w
 ### Source Panel (signature component)
 - **Style:** 360px white surface, Hairline, 16px radius, 24px padding, scrolls independently. Status chip, concept name in Title, the reason paragraph in Body in Soft Ink ("Tombée 6 années sur 6, environ 3,75 points à chaque fois.").
 - **Evidence groups:** three labeled groups in Label type: "DANS TON COURS" (course rows on Inset Stone with a document icon in ember, "Chapitre 2, page 42", arrow), "POUR T'ENTRAÎNER" (TD rows with a pencil icon), "AUX EXAMENS" (exam rows with year and exercise on the left, points right-aligned in tabular numerals). Each row links to the cited page or question.
-- **Excerpts:** a row may expand inline to show the supporting excerpt in Body on Inset Stone; no modal.
+- **Excerpts:** a source row may show its supporting excerpt. Its Preview action opens the cited PDF page in a compact modal, while Open PDF keeps a separate-tab path.
 - **Mastery action:** "J'ai compris cette notion" is a Primary button pinned to the panel bottom. Once pressed it becomes a Secondary "Acquis · annuler" and the node turns Meadow.
 - **Mobile:** becomes a bottom sheet at 60% height, draggable to full.
 

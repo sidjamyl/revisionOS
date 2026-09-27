@@ -28,7 +28,7 @@ The MVP uses Algebra 1 and Introduction to Software Engineering (IGL) from ESI. 
 
 ## Capabilities and Constraints
 
-- Administrators add PDF courses, TDs, and past exams. PDF pages may contain images, so extraction needs a model that can inspect visual content.
+- Administrators add PDF courses, TDs, and past exams. Scanned pages pass through local OCR before Qwen analyzes the extracted text; the selected Qwen model does not inspect images directly.
 - Course chapters are fragmented into concepts. The only graph relation in the MVP is `prerequisite of`, within one module and without cycles. Independent concepts are valid.
 - The extraction and matching stages run automatically. Every concept and dependency retains its source document, page, and supporting excerpt when available; low confidence results remain visibly uncertain.
 - Exam matching works at question or subquestion level. A question has one primary concept for point attribution and may link to other concepts without duplicating points.
@@ -40,7 +40,7 @@ The MVP uses Algebra 1 and Introduction to Software Engineering (IGL) from ESI. 
 
 ## Evidence on Hand
 
-The 35 ESI PDFs are available locally under ignored `.data/imports/`. The checked-in source-backed preview cites verified passages and questions from a subset of those PDFs. It must remain labeled provisional until the entire corpus is processed. Do not publish the original PDFs in Git without explicit permission.
+The 35 ESI PDFs are available locally under ignored `.data/imports/`. The earlier hand-curated preview has been removed. Each module remains empty until Qwen has extracted its concepts; incomplete imports must remain visibly provisional. Do not publish the original PDFs in Git without explicit permission.
 
 ## Product Principles
 

@@ -1,6 +1,6 @@
 import { eq } from 'drizzle-orm';
 import { db, documents, modules } from './db';
-import { demoModules } from './demo-data';
+import { initialModules } from './catalog';
 import type { ModuleData, SourceKind } from '../src/shared/types';
 
 export type StoredDocument = {
@@ -19,7 +19,7 @@ export async function getModule(id: string): Promise<ModuleData | null> {
     const [row] = await db.select().from(modules).where(eq(modules.id, id));
     if (row) return row.data;
   }
-  return demoModules.find(module => module.id === id) ?? null;
+  return initialModules.find(module => module.id === id) ?? null;
 }
 
 export async function saveModule(module: ModuleData): Promise<void> {

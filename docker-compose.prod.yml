@@ -1,0 +1,51 @@
+# Production stack for Dokploy (Compose). Attach the public domain to the "web" service, port 3000.
+services:
+  db:
+    image: pgvector/pgvector:pg17
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: revisionos
+      POSTGRES_USER: revisionos
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U revisionos -d revisionos"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  api:
+    build:
+      context: .
+      dockerfile: docker/api.Dockerfile
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgres://revisionos:${POSTGRES_PASSWORD}@db:5432/revisionos
+      AI_PROVIDER: aigrid
+      AIGRID_BASE_URL: ${AIGRID_BASE_URL:-https://app.ai-grid.io/v1}
+      AIGRID_CHAT_MODEL: ${AIGRID_CHAT_MODEL:-Qwen/Qwen3.8-27B}
+      AIGRID_CHAT_API_KEY: ${AIGRID_CHAT_API_KEY}
+      AIGRID_EMBED_MODEL: ${AIGRID_EMBED_MODEL:-Alibaba-NLP/gte-Qwen2-7B-instruct}
+      AIGRID_EMBED_API_KEY: ${AIGRID_EMBED_API_KEY}
+    volumes:
+      - appdata:/app/.data
+
+  web:
+    build:
+      context: .
+      dockerfile: docker/web.Dockerfile
+      args:
+        API_URL: http://api:4000
+    restart: unless-stopped
+    depends_on:
+      - api
+    expose:
+      - "3000"
+
+volumes:
+  pgdata:
+  appdata:

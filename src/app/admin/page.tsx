@@ -27,6 +27,7 @@ export default function AdminPage() {
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState('');
 
+  useEffect(() => { const requested = new URLSearchParams(window.location.search).get('module'); if (requested) setModuleId(requested); }, []);
   useEffect(() => { fetch('/api/catalog').then(response => response.json()).then(setCatalog).catch(() => setMessage('Unable to load the catalog.')); }, []);
   const modules = catalog.flatMap(program => program.modules.filter(item => item.ready));
 

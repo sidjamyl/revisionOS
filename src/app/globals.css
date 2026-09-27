@@ -3,8 +3,8 @@
 :root {
   color-scheme: light;
   --paper: #ffffff;
-  --surface: #fff;
-  --inset: #f6f5f1;
+  --surface: #ffffff;
+  --inset: #f7f7f8;
   --ink: #1c1b21;
   --ink-soft: #4a4951;
   --ink-muted: #646269;
@@ -12,10 +12,55 @@
   --ember: #ed8139;
   --ember-tint: #fcf0e4;
   --ember-deep: #965935;
+
+  /* shadcn/ui tokens mapped onto the RevisionOS palette. */
+  --radius: 0.625rem;
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--surface);
+  --card-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: #ffffff;
+  --secondary: var(--inset);
+  --secondary-foreground: var(--ink);
+  --muted: var(--inset);
+  --muted-foreground: var(--ink-muted);
+  --accent: var(--ember-tint);
+  --accent-foreground: var(--ember-deep);
+  --destructive: #b42318;
+  --border: #e7e5e4;
+  --input: #e7e5e4;
+  --ring: var(--ember);
 }
-* { box-sizing: border-box; }
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ember: var(--ember);
+  --color-ember-deep: var(--ember-deep);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+* { box-sizing: border-box; border-color: var(--border); }
 html { scroll-behavior: smooth; }
-body { margin: 0; background: var(--paper); color: var(--ink); }
+body { margin: 0; background: var(--background); color: var(--foreground); -webkit-font-smoothing: antialiased; }
 button, input, select { font: inherit; }
 button { cursor: pointer; }
 ::selection { background: var(--ember-tint); }
